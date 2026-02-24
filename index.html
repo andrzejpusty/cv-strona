@@ -1,65 +1,297 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twoje Imię - CV</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        h1 {
-            margin-bottom: 5px;
-        }
-        .section {
-            margin-top: 30px;
-        }
-        .section h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-        }
-        .contact {
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Andrzej Pusty — CV</title>
+  <style>
+    :root{
+      --navy:#0b4f78;
+      --navy2:#083f60;
+      --text:#1f2a33;
+      --muted:#5e6b76;
+      --line:#e6eaee;
+      --bg:#ffffff;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      color:var(--text);
+      background:#f5f7fa;
+    }
+
+    .page{
+      max-width: 1050px;
+      margin: 24px auto;
+      background: var(--bg);
+      border: 1px solid #eef2f5;
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 900px;
+    }
+
+    /* LEFT */
+    .left{
+      background: linear-gradient(180deg, var(--navy), var(--navy2));
+      color:#fff;
+      padding: 28px 22px;
+    }
+    .name{
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.05;
+      margin: 0 0 12px 0;
+      letter-spacing: .3px;
+    }
+    .role{
+      margin: 0 0 22px 0;
+      opacity: .95;
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+    .left h3{
+      margin: 22px 0 10px 0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .card{
+      border-top: 1px solid rgba(255,255,255,.18);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .label{
+      font-size: 12px;
+      opacity: .9;
+      margin: 12px 0 4px 0;
+      font-weight: 700;
+    }
+    .value{
+      margin: 0;
+      font-size: 14px;
+      opacity: .95;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .skills{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills li{
+      margin: 10px 0;
+      line-height: 1.35;
+      font-size: 14px;
+    }
+    .skills strong{display:block; font-size: 13px; opacity:.9; margin-bottom:2px;}
+
+    /* RIGHT */
+    .right{
+      padding: 28px 34px;
+    }
+    .summary{
+      margin: 0 0 18px 0;
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 14.5px;
+    }
+
+    .section{
+      margin-top: 18px;
+    }
+    .section-title{
+      margin: 0;
+      font-size: 22px;
+      color: var(--navy2);
+      font-weight: 800;
+    }
+    .divider{
+      height: 2px;
+      background: var(--line);
+      margin: 10px 0 14px 0;
+    }
+
+    .item{
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      padding: 10px 0;
+    }
+    .date{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+    .title{
+      margin: 0;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .company{
+      margin: 4px 0 8px 0;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .bullets li{ margin: 4px 0; }
+
+    .footer-note{
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      line-height: 1.35;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .page{ grid-template-columns: 1fr; }
+      .right{ padding: 22px; }
+      .left{ padding: 22px; }
+      .item{ grid-template-columns: 1fr; gap: 6px; }
+      .date{ white-space: normal; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Andrzej - Poznań</h1>
-        <p class="contact">email@email.pl | 600 000 000 | LinkedIn</p>
+  <main class="page">
 
-        <div class="section">
-            <h2>O mnie</h2>
-            <p>Krótki opis o Tobie – 3-4 zdania.</p>
-        </div>
+    <!-- LEFT PANEL -->
+    <aside class="left">
+      <h1 class="name">Andrzej Pusty</h1>
+      <p class="role">Administrator systemów IT / DevOps</p>
 
-        <div class="section">
-            <h2>Doświadczenie</h2>
-            <p><strong>Nazwa firmy</strong> – Stanowisko (2022–2024)</p>
-            <p>Opis obowiązków i osiągnięć.</p>
-        </div>
+      <div class="card">
+        <h3>Dane osobowe</h3>
 
-        <div class="section">
-            <h2>Umiejętności</h2>
-            <ul>
-                <li>Umiejętność 1</li>
-                <li>Umiejętność 2</li>
-                <li>Umiejętność 3</li>
+        <div class="label">E-mail</div>
+        <p class="value">andrzej.pusty@gmail.com</p>
+
+        <div class="label">Numer telefonu</div>
+        <p class="value">+48 697 474 570</p>
+
+        <div class="label">Lokalizacja</div>
+        <p class="value">Poznań</p>
+
+        <div class="label">LinkedIn</div>
+        <p class="value">linkedin.com/in/twoj-profil</p>
+
+        <div class="label">GitHub</div>
+        <p class="value">github.com/twoj-login</p>
+      </div>
+
+      <div class="card">
+        <h3>Umiejętności</h3>
+        <ul class="skills">
+          <li><strong>Systemy operacyjne</strong>Linux (RHEL), Windows Server</li>
+          <li><strong>Monitoring</strong>Zabbix, Nagios, Grafana, Dynatrace</li>
+          <li><strong>Automatyzacja</strong>Jenkins, GitLab CI/CD, Ansible</li>
+          <li><strong>Bazy danych</strong>PostgreSQL, Oracle, MongoDB</li>
+          <li><strong>Skrypty</strong>Bash, SQL</li>
+          <li><strong>Aplikacje i kontenery</strong>Docker, Tomcat, Apache, Kafka, RabbitMQ, Hazelcast</li>
+          <li><strong>Bezpieczeństwo i sieci</strong>Fortigate, SonicWall, Cisco</li>
+          <li><strong>Angielski</strong>Techniczny + komunikacja</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Certyfikaty</h3>
+        <p class="value"><strong>CISCO</strong> CCNA (Egzamin 200-125)</p>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <section class="right">
+      <p class="summary">
+        Administrator systemów IT z 7-letnim doświadczeniem w administracji systemami Linux,
+        automatyzacji procesów IT oraz zarządzaniu bazami danych. Specjalizuję się w monitorowaniu
+        systemów, analizie logów i utrzymaniu infrastruktury IT. Posiadam doświadczenie w pracy
+        z rozwiązaniami CI/CD, zapewnianiu wysokiej dostępności usług oraz optymalizacji procesów IT.
+      </p>
+
+      <div class="section">
+        <h2 class="section-title">Doświadczenie</h2>
+        <div class="divider"></div>
+
+        <div class="item">
+          <div class="date">2024-12<br>– obecnie</div>
+          <div>
+            <p class="title">Administrator systemów IT</p>
+            <p class="company">SGB-Bank</p>
+            <ul class="bullets">
+              <li>Administrowanie i monitorowanie systemów Linux oraz aplikacji bankowych</li>
+              <li>Tworzenie i rozwijanie skryptów Bash oraz automatyzacja procesów IT (Ansible)</li>
+              <li>Analiza logów i rozwiązywanie problemów aplikacyjnych</li>
+              <li>Współpraca z developerami – wdrażanie i testowanie nowych wersji aplikacji</li>
+              <li>Tworzenie i aktualizacja dokumentacji</li>
             </ul>
+          </div>
         </div>
-    </div>
-</body>
 
+        <div class="item">
+          <div class="date">2018-02<br>– 2024-11</div>
+          <div>
+            <p class="title">Administrator systemów IT</p>
+            <p class="company">Santander Bank Polska</p>
+            <ul class="bullets">
+              <li>Administrowanie systemami Linux</li>
+              <li>Automatyzacja powtarzalnych czynności</li>
+              <li>Zarządzanie aplikacjami w kontenerach Docker</li>
+              <li>Wdrażanie aplikacji na środowiska testowe i produkcyjne</li>
+              <li>Aktualizacje systemów (patchowanie) oraz dyżur on-call</li>
+              <li>Udział w działaniach DR (Disaster Recovery)</li>
+              <li>Zarządzanie bazami danych (Oracle, PostgreSQL, MongoDB)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="date">2009-02<br>– 2018-04</div>
+          <div>
+            <p class="title">Informatyk</p>
+            <p class="company">AdvaCom Sp. z o.o.</p>
+            <ul class="bullets">
+              <li>Opieka nad infrastrukturą sieciową (LAN/WLAN/WAN)</li>
+              <li>Opieka nad serwerami (VMware, Linux, Windows)</li>
+              <li>Monitorowanie urządzeń (Nagios)</li>
+              <li>Administracja firewall (Fortigate, Sonicwall, Cisco)</li>
+              <li>Backup i odtwarzanie kopii zapasowych</li>
+              <li>Wsparcie użytkowników i rozwiązywanie problemów</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Wykształcenie</h2>
+        <div class="divider"></div>
+
+        <div class="item">
+          <div class="date">2002-10<br>– 2006-05</div>
+          <div>
+            <p class="title">Informatyka, Inżynier</p>
+            <p class="company">Wyższa Szkoła Humanistyczno-Ekonomiczna w Łodzi</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-note">
+        *Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z RODO.
+      </p>
+    </section>
+
+  </main>
+</body>
 </html>
