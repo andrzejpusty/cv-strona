@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Andrzej Pusty — CV</title>
+
   <style>
     :root{
       --navy:#0b4f78;
@@ -22,6 +23,9 @@
       background:#f5f7fa;
     }
 
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
     .page{
       max-width: 1050px;
       margin: 24px auto;
@@ -31,6 +35,7 @@
       display: grid;
       grid-template-columns: 320px 1fr;
       min-height: 900px;
+      overflow: hidden;
     }
 
     /* LEFT */
@@ -41,13 +46,13 @@
     }
     .name{
       font-size: 40px;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.05;
-      margin: 0 0 12px 0;
-      letter-spacing: .3px;
+      margin: 0 0 10px 0;
+      letter-spacing: .2px;
     }
     .role{
-      margin: 0 0 22px 0;
+      margin: 0 0 18px 0;
       opacity: .95;
       font-size: 14px;
       letter-spacing: .2px;
@@ -64,18 +69,19 @@
     }
     .label{
       font-size: 12px;
-      opacity: .9;
+      opacity: .92;
       margin: 12px 0 4px 0;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: .2px;
     }
     .value{
       margin: 0;
       font-size: 14px;
-      opacity: .95;
+      opacity: .98;
       line-height: 1.35;
       word-break: break-word;
     }
-
+    .value a{ color:#fff; }
     .skills{
       list-style: none;
       padding: 0;
@@ -86,7 +92,13 @@
       line-height: 1.35;
       font-size: 14px;
     }
-    .skills strong{display:block; font-size: 13px; opacity:.9; margin-bottom:2px;}
+    .skills strong{
+      display:block;
+      font-size: 13px;
+      opacity:.92;
+      margin-bottom:2px;
+      letter-spacing: .15px;
+    }
 
     /* RIGHT */
     .right{
@@ -94,8 +106,7 @@
     }
     .summary{
       margin: 0 0 18px 0;
-      color: var(--text);
-      line-height: 1.55;
+      line-height: 1.6;
       font-size: 14.5px;
     }
 
@@ -106,7 +117,8 @@
       margin: 0;
       font-size: 22px;
       color: var(--navy2);
-      font-weight: 800;
+      font-weight: 900;
+      letter-spacing: .2px;
     }
     .divider{
       height: 2px;
@@ -128,7 +140,7 @@
     }
     .title{
       margin: 0;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 16px;
     }
     .company{
@@ -140,8 +152,7 @@
     .bullets{
       margin: 0;
       padding-left: 18px;
-      color: var(--text);
-      line-height: 1.5;
+      line-height: 1.55;
       font-size: 14px;
     }
     .bullets li{ margin: 4px 0; }
@@ -155,16 +166,53 @@
       line-height: 1.35;
     }
 
-    /* Responsive */
+    /* RESPONSIVE */
     @media (max-width: 920px){
-      .page{ grid-template-columns: 1fr; }
-      .right{ padding: 22px; }
-      .left{ padding: 22px; }
-      .item{ grid-template-columns: 1fr; gap: 6px; }
-      .date{ white-space: normal; }
+      .page{
+        grid-template-columns: 1fr;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+        min-height: auto;
+      }
+
+      .left{
+        padding: 18px 16px;
+      }
+
+      .name{
+        font-size: 32px;
+      }
+
+      .right{
+        padding: 18px 16px;
+      }
+
+      .item{
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 12px 0;
+      }
+
+      .date{
+        white-space: normal;
+        font-size: 12.5px;
+      }
+
+      .section-title{
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 420px){
+      .name{ font-size: 28px; }
+      .summary{ font-size: 14px; }
+      .title{ font-size: 15px; }
+      .bullets{ font-size: 13.5px; }
     }
   </style>
 </head>
+
 <body>
   <main class="page">
 
@@ -177,19 +225,27 @@
         <h3>Dane osobowe</h3>
 
         <div class="label">E-mail</div>
-        <p class="value">andrzej.pusty@gmail.com</p>
+        <p class="value">
+          <a href="mailto:andrzej.pusty@gmail.com">andrzej.pusty@gmail.com</a>
+        </p>
 
         <div class="label">Numer telefonu</div>
-        <p class="value">+48 697 474 570</p>
+        <p class="value">
+          <a href="tel:+48697474570">+48 697 474 570</a>
+        </p>
 
         <div class="label">Lokalizacja</div>
         <p class="value">Poznań</p>
 
         <div class="label">LinkedIn</div>
-        <p class="value">linkedin.com/in/twoj-profil</p>
+        <p class="value">
+          <a href="https://linkedin.com/in/twoj-profil" target="_blank" rel="noopener">linkedin.com/in/twoj-profil</a>
+        </p>
 
         <div class="label">GitHub</div>
-        <p class="value">github.com/twoj-login</p>
+        <p class="value">
+          <a href="https://github.com/twoj-login" target="_blank" rel="noopener">github.com/twoj-login</a>
+        </p>
       </div>
 
       <div class="card">
@@ -266,7 +322,7 @@
               <li>Opieka nad infrastrukturą sieciową (LAN/WLAN/WAN)</li>
               <li>Opieka nad serwerami (VMware, Linux, Windows)</li>
               <li>Monitorowanie urządzeń (Nagios)</li>
-              <li>Administracja firewall (Fortigate, Sonicwall, Cisco)</li>
+              <li>Administracja firewall (Fortigate, SonicWall, Cisco)</li>
               <li>Backup i odtwarzanie kopii zapasowych</li>
               <li>Wsparcie użytkowników i rozwiązywanie problemów</li>
             </ul>
