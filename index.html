@@ -20,7 +20,7 @@
   --bg:#ffffff;
   --chip:#eef5fb;
   --chipText:#0b4f78;
-  --shadow: 0 12px 30px rgba(0,0,0,.08);
+  --shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
 body.dark{
@@ -35,14 +35,13 @@ body.dark{
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   font-family:Inter, Arial, sans-serif;
   color:var(--text);
   background:#f5f7fa;
 }
-
-body.dark{background:#0f1720}
 
 a{color:inherit;text-decoration:none}
 a:hover{text-decoration:underline}
@@ -65,19 +64,10 @@ a:hover{text-decoration:underline}
   padding:28px 22px;
 }
 
-.name{
-  font-size:40px;
-  font-weight:900;
-  margin:0 0 10px;
-}
+.name{font-size:38px;font-weight:900;margin:0 0 10px}
+.role{font-size:14px;font-weight:600;margin-bottom:20px}
 
-.role{
-  font-size:14px;
-  font-weight:600;
-  margin-bottom:20px;
-}
-
-.left h3{margin:20px 0 10px;font-size:18px}
+.left h3{margin:20px 0 10px;font-size:17px}
 
 .value{font-size:14px;margin:6px 0}
 .value a{color:#fff}
@@ -88,13 +78,14 @@ a:hover{text-decoration:underline}
 
 /* RIGHT */
 .right{padding:28px 34px}
-
 .section{margin-top:20px}
+
 .section-title{
   font-size:22px;
   font-weight:900;
   color:var(--navy2);
 }
+
 .divider{
   height:2px;
   background:var(--line);
@@ -114,7 +105,7 @@ a:hover{text-decoration:underline}
   border:1px solid var(--line);
   background:var(--chip);
   color:var(--chipText);
-  padding:6px 10px;
+  padding:6px 12px;
   border-radius:999px;
   font-size:12px;
   font-weight:700;
@@ -155,6 +146,7 @@ a:hover{text-decoration:underline}
 }
 
 .bullets{padding-left:18px;font-size:14px}
+
 .achievement{
   background:#f7fbff;
   border-left:4px solid var(--navy);
@@ -170,6 +162,7 @@ a:hover{text-decoration:underline}
   gap:6px;
   margin-top:8px;
 }
+
 .chip{
   background:var(--chip);
   color:var(--chipText);
@@ -185,6 +178,8 @@ a:hover{text-decoration:underline}
   .toolbar{display:none}
   .page{box-shadow:none;border:none;margin:0}
 }
+
+/* RESPONSIVE */
 @media(max-width:980px){
   .page{grid-template-columns:1fr}
 }
@@ -206,8 +201,9 @@ a:hover{text-decoration:underline}
 
   <h3>Umiejętności</h3>
   <ul class="skills">
-    <li><strong>Systemy</strong>Linux, Windows Server</li>
-    <li><strong>Automatyzacja</strong>Ansible, Bash, CI/CD</li>
+    <li><strong>Systemy</strong>Linux (RHEL), Windows Server</li>
+    <li><strong>Automatyzacja</strong>Ansible, Bash, Jenkins, GitLab CI/CD</li>
+    <li><strong>Monitoring</strong>Zabbix, Nagios, Grafana</li>
     <li><strong>Kontenery</strong>Docker</li>
     <li><strong>DB</strong>PostgreSQL, Oracle, MongoDB</li>
   </ul>
@@ -224,6 +220,7 @@ a:hover{text-decoration:underline}
     <button class="filter-chip" data-filter="linux">Linux</button>
     <button class="filter-chip" data-filter="docker">Docker</button>
     <button class="filter-chip" data-filter="ansible">Ansible</button>
+    <button class="filter-chip" data-filter="postgresql">PostgreSQL</button>
     <button class="filter-clear" id="filtersClear">Wyczyść</button>
   </div>
   <div>
@@ -232,7 +229,8 @@ a:hover{text-decoration:underline}
   </div>
 </div>
 
-<details class="job" open data-tags="linux ansible docker">
+<!-- SGB -->
+<details class="job" open data-tags="linux ansible bash docker">
 <summary class="job-summary">
 <div>2024–obecnie</div>
 <div>
@@ -256,29 +254,82 @@ a:hover{text-decoration:underline}
 </div>
 </details>
 
+<!-- Santander -->
+<details class="job" data-tags="linux docker postgresql oracle mongodb">
+<summary class="job-summary">
+<div>2018–2024</div>
+<div>
+<p><strong>Administrator systemów IT</strong></p>
+<p>Santander Bank Polska</p>
+</div>
+<span class="chev">▾</span>
+</summary>
+<div>
+<ul class="bullets">
+<li>Administracja Linux</li>
+<li>Docker i CI/CD</li>
+<li>DB: Oracle, PostgreSQL, MongoDB</li>
+</ul>
+<div class="achievement"><strong>Automatyzacja:</strong> redukcja manualnych operacji.</div>
+<div class="chips">
+<span class="chip">Linux</span>
+<span class="chip">Docker</span>
+<span class="chip">PostgreSQL</span>
+<span class="chip">Oracle</span>
+<span class="chip">MongoDB</span>
+</div>
+</div>
+</details>
+
+<!-- AdvaCom -->
+<details class="job" data-tags="linux windows nagios fortigate cisco">
+<summary class="job-summary">
+<div>2009–2018</div>
+<div>
+<p><strong>Informatyk</strong></p>
+<p>AdvaCom Sp. z o.o.</p>
+</div>
+<span class="chev">▾</span>
+</summary>
+<div>
+<ul class="bullets">
+<li>LAN/WLAN/WAN</li>
+<li>VMware, Linux, Windows</li>
+<li>Monitoring (Nagios)</li>
+</ul>
+<div class="achievement"><strong>Utrzymanie:</strong> poprawa ciągłości działania.</div>
+<div class="chips">
+<span class="chip">Linux</span>
+<span class="chip">Windows</span>
+<span class="chip">Nagios</span>
+<span class="chip">Cisco</span>
+</div>
+</div>
+</details>
+
 </div>
 
 </section>
 </main>
 
 <script>
-// FILTROWANIE
-const chips = document.querySelectorAll('.filter-chip');
-const jobs = document.querySelectorAll('.job');
-const clearBtn = document.getElementById('filtersClear');
-let active = new Set();
+// FILTRY
+const chips=document.querySelectorAll('.filter-chip');
+const jobs=document.querySelectorAll('.job');
+const clearBtn=document.getElementById('filtersClear');
+let active=new Set();
 
-function applyFilters(){
+function apply(){
   jobs.forEach(job=>{
-    const tags = job.dataset.tags;
-    const match = [...active].every(f=>tags.includes(f));
-    job.classList.toggle('hidden', active.size>0 && !match);
+    const tags=job.dataset.tags||"";
+    const ok=[...active].every(f=>tags.includes(f));
+    job.classList.toggle('hidden',active.size>0&&!ok);
   });
 }
 
 chips.forEach(btn=>{
   btn.addEventListener('click',()=>{
-    const f = btn.dataset.filter;
+    const f=btn.dataset.filter;
     if(active.has(f)){
       active.delete(f);
       btn.classList.remove('active');
@@ -286,32 +337,29 @@ chips.forEach(btn=>{
       active.add(f);
       btn.classList.add('active');
     }
-    applyFilters();
+    apply();
   });
 });
 
 clearBtn.addEventListener('click',()=>{
   active.clear();
   chips.forEach(c=>c.classList.remove('active'));
-  applyFilters();
+  apply();
 });
 
 // DARK MODE
-const toggle = document.getElementById('themeToggle');
+const toggle=document.getElementById('themeToggle');
 if(localStorage.getItem('theme')==='dark'){
   document.body.classList.add('dark');
 }
 toggle.addEventListener('click',()=>{
   document.body.classList.toggle('dark');
   localStorage.setItem('theme',
-    document.body.classList.contains('dark')?'dark':'light'
-  );
+    document.body.classList.contains('dark')?'dark':'light');
 });
 
 // PRINT
-document.getElementById('printBtn').addEventListener('click',()=>{
-  window.print();
-});
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
 </script>
 
 </body>
