@@ -154,10 +154,23 @@ body{
   margin-bottom:24px;
 }
 
-/* SECTION */
+/* SECTION (fade-in) */
 .section{
   margin-top:28px;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .6s ease forwards;
 }
+.section:nth-of-type(2){ animation-delay:.1s; }
+.section:nth-of-type(3){ animation-delay:.2s; }
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
 .section-title{
   font-size:22px;
   font-weight:900;
@@ -182,11 +195,11 @@ body{
   border-radius:14px;
   padding:18px 20px;
   margin-bottom:18px;
-  transition:.2s;
+  transition:.25s ease;
 }
 .item:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 24px rgba(0,0,0,.06);
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
 }
 
 .date{
@@ -212,18 +225,31 @@ body{
   font-size:14px;
   line-height:1.5;
 }
+
+/* CHIPS (bigger + icons-friendly) */
 .chips{
   margin-top:10px;
 }
 .chip{
-  display:inline-block;
-  padding:5px 10px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 14px;
   border-radius:999px;
-  font-size:12px;
+  font-size:13px;
   font-weight:700;
   background:var(--chip);
   color:var(--chipText);
-  margin:4px 6px 0 0;
+  margin:6px 8px 0 0;
+  transition:.2s ease;
+}
+.chip svg{
+  flex:0 0 auto;
+  opacity:.95;
+}
+.chip:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
 }
 
 /* FOOTER */
@@ -314,9 +340,27 @@ Specjalizuję się w automatyzacji (Ansible, Bash), monitoringu oraz utrzymaniu
 <li>Współpraca z developerami</li>
 </ul>
 <div class="chips">
-<span class="chip">Linux</span>
-<span class="chip">Ansible</span>
-<span class="chip">Docker</span>
+  <span class="chip">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C8 2 6 5 6 8c0 1.5.5 3 1.5 4L6 18c2 1 4 2 6 2s4-1 6-2l-1.5-6c1-1 1.5-2.5 1.5-4 0-3-2-6-6-6z"/>
+    </svg>
+    Linux
+  </span>
+
+  <span class="chip">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 6l4 12h-2l-1-3H11l-1 3H8l4-12z" fill="#fff"/>
+    </svg>
+    Ansible
+  </span>
+
+  <span class="chip">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13 12h2v2h-2v-2zm-3 0h2v2h-2v-2zm6 0h2v2h-2v-2zm-9 0h2v2H7v-2zm15-2c0-1-1-2-2-2h-1V6h-2v2h-2V6h-2v2H9V6H7v2H5c-1 0-2 1-2 2 0 4 3 8 9 8s10-4 10-8z"/>
+    </svg>
+    Docker
+  </span>
 </div>
 </div>
 
@@ -332,10 +376,22 @@ Specjalizuję się w automatyzacji (Ansible, Bash), monitoringu oraz utrzymaniu
 <li>Zarządzanie bazami danych</li>
 </ul>
 <div class="chips">
-<span class="chip">Linux</span>
-<span class="chip">Docker</span>
-<span class="chip">PostgreSQL</span>
-<span class="chip">Oracle</span>
+  <span class="chip">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C8 2 6 5 6 8c0 1.5.5 3 1.5 4L6 18c2 1 4 2 6 2s4-1 6-2l-1.5-6c1-1 1.5-2.5 1.5-4 0-3-2-6-6-6z"/>
+    </svg>
+    Linux
+  </span>
+
+  <span class="chip">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13 12h2v2h-2v-2zm-3 0h2v2h-2v-2zm6 0h2v2h-2v-2zm-9 0h2v2H7v-2zm15-2c0-1-1-2-2-2h-1V6h-2v2h-2V6h-2v2H9V6H7v2H5c-1 0-2 1-2 2 0 4 3 8 9 8s10-4 10-8z"/>
+    </svg>
+    Docker
+  </span>
+
+  <span class="chip">PostgreSQL</span>
+  <span class="chip">Oracle</span>
 </div>
 </div>
 
