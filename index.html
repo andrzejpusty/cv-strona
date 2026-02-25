@@ -1,365 +1,274 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="color-scheme" content="light dark">
-<title>Andrzej Pusty — CV</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrzej Pusty - CV</title>
 
 <style>
 :root{
-  --navy:#0b4f78;
-  --navy2:#083f60;
-  --text:#18222b;
-  --muted:#5e6b76;
-  --line:#e6eaee;
-  --bg:#ffffff;
-  --chip:#eef5fb;
-  --chipText:#0b4f78;
-  --shadow:0 12px 30px rgba(0,0,0,.08);
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --primary:#0f4c75;
+    --text:#1f2937;
+    --muted:#6b7280;
 }
 
 body.dark{
-  --bg:#0f1720;
-  --text:#e6edf3;
-  --muted:#9aa7b3;
-  --line:#1f2a33;
-  --chip:#1b2a36;
-  --chipText:#8ecfff;
-  background:#0f1720;
+    --bg:#0b1220;
+    --card:#111827;
+    --primary:#1f6feb;
+    --text:#e5e7eb;
+    --muted:#9ca3af;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+    box-sizing:border-box;
+}
 
 body{
-  margin:0;
-  font-family:Inter, Arial, sans-serif;
-  color:var(--text);
-  background:#f5f7fa;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:0.3s;
 }
 
-a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline}
-
-.page{
-  max-width:1100px;
-  margin:24px auto;
-  background:var(--bg);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  display:grid;
-  grid-template-columns:330px 1fr;
-  overflow:hidden;
+.container{
+    display:flex;
+    max-width:1200px;
+    margin:auto;
 }
 
-/* LEFT */
-.left{
-  background:linear-gradient(180deg,var(--navy),var(--navy2));
-  color:#fff;
-  padding:28px 22px;
+.sidebar{
+    background:var(--primary);
+    color:white;
+    padding:30px;
+    width:320px;
 }
 
-.name{font-size:38px;font-weight:900;margin:0 0 10px}
-.role{font-size:14px;font-weight:600;margin-bottom:20px}
-
-.left h3{margin:20px 0 10px;font-size:17px}
-
-.value{font-size:14px;margin:6px 0}
-.value a{color:#fff}
-
-.skills{list-style:none;padding:0;margin:0}
-.skills li{margin:8px 0;font-size:14px}
-.skills strong{display:block;font-size:13px;margin-bottom:3px}
-
-/* RIGHT */
-.right{padding:28px 34px}
-.section{margin-top:20px}
-
-.section-title{
-  font-size:22px;
-  font-weight:900;
-  color:var(--navy2);
+.sidebar h1{
+    margin:0;
+    font-size:26px;
 }
 
-.divider{
-  height:2px;
-  background:var(--line);
-  margin:10px 0 15px;
+.sidebar h2{
+    margin-top:30px;
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-/* TOOLBAR */
-.toolbar{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:15px;
+.sidebar p{
+    margin:6px 0;
+    font-size:14px;
 }
 
-.filter-chip,.filter-clear,.action-btn{
-  border:1px solid var(--line);
-  background:var(--chip);
-  color:var(--chipText);
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
-  cursor:pointer;
+.content{
+    flex:1;
+    padding:40px;
 }
 
-.filter-chip.active{
-  background:var(--navy);
-  color:#fff;
+.section{
+    margin-bottom:40px;
 }
 
-.job.hidden{display:none}
+.section h2{
+    border-bottom:2px solid var(--primary);
+    padding-bottom:8px;
+}
 
-/* ACCORDION */
 .job{
-  border-bottom:1px solid var(--line);
-  padding:10px 0;
+    margin-bottom:30px;
 }
 
-.job-summary{
-  list-style:none;
-  cursor:pointer;
-  display:grid;
-  grid-template-columns:140px 1fr 24px;
-  gap:18px;
-  align-items:start;
+.job h3{
+    margin:0;
 }
 
-.job-summary::-webkit-details-marker{display:none}
-
-.chev{
-  font-weight:900;
-  transition:.2s;
+.job span{
+    color:var(--muted);
+    font-size:14px;
 }
 
-.job[open] .chev{
-  transform:rotate(180deg);
+.tags{
+    margin-top:10px;
 }
 
-.bullets{padding-left:18px;font-size:14px}
-
-.achievement{
-  background:#f7fbff;
-  border-left:4px solid var(--navy);
-  padding:8px 10px;
-  margin:8px 0;
-  border-radius:8px;
-  font-size:13px;
+.tag{
+    display:inline-block;
+    background:var(--primary);
+    color:white;
+    padding:4px 10px;
+    border-radius:15px;
+    font-size:12px;
+    margin:4px 4px 0 0;
 }
 
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:8px;
+.topbar{
+    text-align:right;
+    margin-bottom:20px;
 }
 
-.chip{
-  background:var(--chip);
-  color:var(--chipText);
-  padding:5px 8px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
+button{
+    padding:8px 12px;
+    border:none;
+    cursor:pointer;
+    border-radius:6px;
+    margin-left:5px;
 }
 
-/* PRINT */
-@media print{
-  body{background:#fff}
-  .toolbar{display:none}
-  .page{box-shadow:none;border:none;margin:0}
+.btn-dark{
+    background:var(--primary);
+    color:white;
 }
 
-/* RESPONSIVE */
-@media(max-width:980px){
-  .page{grid-template-columns:1fr}
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+    .sidebar{
+        width:100%;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<main class="page">
+<div class="container">
 
-<aside class="left">
-  <h1 class="name">Andrzej Pusty</h1>
-  <p class="role">Administrator systemów IT / DevOps</p>
+<div class="sidebar">
+    <h1>Andrzej Pusty</h1>
+    <p>Administrator systemów IT / DevOps</p>
 
-  <h3>Dane kontaktowe</h3>
-  <p class="value">📧 andrzej.pusty@gmail.com</p>
-  <p class="value">📱 +48 697 474 570</p>
-  <p class="value">📍 Poznań</p>
+    <h2>Dane kontaktowe</h2>
+    <p>📧 andrzej.pusty@gmail.com</p>
+    <p>📱 +48 697 474 570</p>
+    <p>📍 Poznań</p>
 
-  <h3>Umiejętności</h3>
-  <ul class="skills">
-    <li><strong>Systemy</strong>Linux (RHEL), Windows Server</li>
-    <li><strong>Automatyzacja</strong>Ansible, Bash, Jenkins, GitLab CI/CD</li>
-    <li><strong>Monitoring</strong>Zabbix, Nagios, Grafana</li>
-    <li><strong>Kontenery</strong>Docker</li>
-    <li><strong>DB</strong>PostgreSQL, Oracle, MongoDB</li>
-  </ul>
-</aside>
+    <h2>Umiejętności</h2>
+    <p><strong>Systemy:</strong><br>Linux (RHEL), Windows Server</p>
+    <p><strong>Automatyzacja:</strong><br>Ansible, Bash, Jenkins, GitLab CI/CD</p>
+    <p><strong>Monitoring:</strong><br>Zabbix, Nagios, Grafana</p>
+    <p><strong>Kontenery:</strong><br>Docker</p>
+    <p><strong>Bazy danych:</strong><br>PostgreSQL, Oracle, MongoDB</p>
+    <p><strong>Sieci i bezpieczeństwo:</strong><br>Fortigate, SonicWall, Cisco</p>
+    <p><strong>Języki:</strong><br>Bash, SQL</p>
 
-<section class="right">
+    <h2>Certyfikat</h2>
+    <p>CISCO CCNA (200-125)</p>
 
-<div class="section" id="doswiadczenie">
-<h2 class="section-title">Doświadczenie</h2>
-<div class="divider"></div>
-
-<div class="toolbar">
-  <div>
-    <button class="filter-chip" data-filter="linux">Linux</button>
-    <button class="filter-chip" data-filter="docker">Docker</button>
-    <button class="filter-chip" data-filter="ansible">Ansible</button>
-    <button class="filter-chip" data-filter="postgresql">PostgreSQL</button>
-    <button class="filter-clear" id="filtersClear">Wyczyść</button>
-  </div>
-  <div>
-    <button class="action-btn" id="themeToggle">🌙 Tryb nocny</button>
-    <button class="action-btn" id="printBtn">⬇️ Pobierz PDF</button>
-  </div>
+    <h2>Język</h2>
+    <p>Angielski – swobodne korzystanie z dokumentacji technicznej</p>
 </div>
 
-<!-- SGB -->
-<details class="job" open data-tags="linux ansible bash docker">
-<summary class="job-summary">
-<div>2024–obecnie</div>
-<div>
-<p><strong>Administrator systemów IT</strong></p>
-<p>SGB-Bank</p>
-</div>
-<span class="chev">▾</span>
-</summary>
-<div>
-<ul class="bullets">
-<li>Administracja Linux</li>
-<li>Automatyzacja (Ansible, Bash)</li>
-<li>Monitoring i analiza logów</li>
-</ul>
-<div class="achievement"><strong>Usprawnienia:</strong> automatyzacja procesów.</div>
-<div class="chips">
-<span class="chip">Linux</span>
-<span class="chip">Ansible</span>
-<span class="chip">Docker</span>
-</div>
-</div>
-</details>
+<div class="content">
 
-<!-- Santander -->
-<details class="job" data-tags="linux docker postgresql oracle mongodb">
-<summary class="job-summary">
-<div>2018–2024</div>
-<div>
-<p><strong>Administrator systemów IT</strong></p>
-<p>Santander Bank Polska</p>
+<div class="topbar">
+    <button class="btn-dark" onclick="toggleDark()">Tryb nocny</button>
+    <button onclick="window.print()">Pobierz PDF</button>
 </div>
-<span class="chev">▾</span>
-</summary>
-<div>
-<ul class="bullets">
-<li>Administracja Linux</li>
-<li>Docker i CI/CD</li>
-<li>DB: Oracle, PostgreSQL, MongoDB</li>
-</ul>
-<div class="achievement"><strong>Automatyzacja:</strong> redukcja manualnych operacji.</div>
-<div class="chips">
-<span class="chip">Linux</span>
-<span class="chip">Docker</span>
-<span class="chip">PostgreSQL</span>
-<span class="chip">Oracle</span>
-<span class="chip">MongoDB</span>
-</div>
-</div>
-</details>
 
-<!-- AdvaCom -->
-<details class="job" data-tags="linux windows nagios fortigate cisco">
-<summary class="job-summary">
-<div>2009–2018</div>
-<div>
-<p><strong>Informatyk</strong></p>
-<p>AdvaCom Sp. z o.o.</p>
+<div class="section">
+    <h2>Profil zawodowy</h2>
+    <p>
+    Administrator systemów IT z 7-letnim doświadczeniem w administracji systemami Linux,
+    automatyzacji procesów IT oraz zarządzaniu bazami danych.
+    Specjalizuję się w monitorowaniu systemów, analizie logów oraz utrzymaniu infrastruktury IT.
+    Posiadam doświadczenie w pracy z rozwiązaniami CI/CD, zapewnianiu wysokiej dostępności usług
+    oraz optymalizacji procesów IT. Skutecznie rozwiązuję problemy aplikacyjne i systemowe
+    w środowiskach testowych i produkcyjnych.
+    </p>
 </div>
-<span class="chev">▾</span>
-</summary>
-<div>
-<ul class="bullets">
-<li>LAN/WLAN/WAN</li>
-<li>VMware, Linux, Windows</li>
-<li>Monitoring (Nagios)</li>
-</ul>
-<div class="achievement"><strong>Utrzymanie:</strong> poprawa ciągłości działania.</div>
-<div class="chips">
-<span class="chip">Linux</span>
-<span class="chip">Windows</span>
-<span class="chip">Nagios</span>
-<span class="chip">Cisco</span>
-</div>
-</div>
-</details>
+
+<div class="section">
+    <h2>Doświadczenie</h2>
+
+    <div class="job">
+        <h3>Administrator systemów IT</h3>
+        <span>2024 – obecnie | SGB-Bank</span>
+        <ul>
+            <li>Administracja i monitorowanie systemów Linux oraz aplikacji bankowych</li>
+            <li>Automatyzacja procesów IT (Ansible, Bash)</li>
+            <li>Analiza logów i rozwiązywanie problemów aplikacyjnych</li>
+            <li>Współpraca z developerami – wdrażanie i testowanie nowych wersji aplikacji</li>
+            <li>Tworzenie i aktualizacja dokumentacji technicznej</li>
+        </ul>
+        <div class="tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Ansible</span>
+            <span class="tag">Docker</span>
+        </div>
+    </div>
+
+    <div class="job">
+        <h3>Administrator systemów IT</h3>
+        <span>2018 – 2024 | Santander Bank Polska</span>
+        <ul>
+            <li>Administracja systemami Linux</li>
+            <li>Automatyzacja powtarzalnych czynności</li>
+            <li>Zarządzanie aplikacjami w kontenerach Docker</li>
+            <li>Wdrażanie aplikacji na środowiskach testowych i produkcyjnych</li>
+            <li>Aktualizacja systemów (patchowanie)</li>
+            <li>Dyżury on-call – reagowanie na awarie</li>
+            <li>Uczestnictwo w działaniach Disaster Recovery</li>
+            <li>Zarządzanie bazami danych (Oracle, PostgreSQL, MongoDB)</li>
+        </ul>
+        <div class="tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Docker</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Oracle</span>
+            <span class="tag">MongoDB</span>
+        </div>
+    </div>
+
+    <div class="job">
+        <h3>Informatyk</h3>
+        <span>2009 – 2018 | AdvaCom Sp. z o.o.</span>
+        <ul>
+            <li>Opieka nad infrastrukturą sieciową (LAN/WLAN/WAN)</li>
+            <li>Administracja serwerami VMware, Linux, MS Windows</li>
+            <li>Monitoring urządzeń (Nagios)</li>
+            <li>Administracja systemami bezpieczeństwa (Fortigate, SonicWall, Cisco)</li>
+            <li>Wsparcie użytkowników oraz rozwiązywanie problemów</li>
+            <li>Odtwarzanie kopii zapasowych</li>
+            <li>Optymalizacja zasobów informatycznych</li>
+        </ul>
+        <div class="tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Nagios</span>
+            <span class="tag">Cisco</span>
+        </div>
+    </div>
 
 </div>
 
-</section>
-</main>
+<div class="section">
+    <h2>Wykształcenie</h2>
+    <p><strong>Informatyka, Inżynier</strong><br>
+    2002 – 2006<br>
+    Wyższa Szkoła Humanistyczno-Ekonomiczna w Łodzi
+    </p>
+</div>
+
+<div class="section">
+    <h2>Klauzula</h2>
+    <p style="font-size:12px; color:var(--muted);">
+    Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji
+    procesów rekrutacyjnych zgodnie z obowiązującymi przepisami prawa.
+    </p>
+</div>
+
+</div>
+</div>
 
 <script>
-// FILTRY
-const chips=document.querySelectorAll('.filter-chip');
-const jobs=document.querySelectorAll('.job');
-const clearBtn=document.getElementById('filtersClear');
-let active=new Set();
-
-function apply(){
-  jobs.forEach(job=>{
-    const tags=job.dataset.tags||"";
-    const ok=[...active].every(f=>tags.includes(f));
-    job.classList.toggle('hidden',active.size>0&&!ok);
-  });
+function toggleDark(){
+    document.body.classList.toggle("dark");
 }
-
-chips.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const f=btn.dataset.filter;
-    if(active.has(f)){
-      active.delete(f);
-      btn.classList.remove('active');
-    }else{
-      active.add(f);
-      btn.classList.add('active');
-    }
-    apply();
-  });
-});
-
-clearBtn.addEventListener('click',()=>{
-  active.clear();
-  chips.forEach(c=>c.classList.remove('active'));
-  apply();
-});
-
-// DARK MODE
-const toggle=document.getElementById('themeToggle');
-if(localStorage.getItem('theme')==='dark'){
-  document.body.classList.add('dark');
-}
-toggle.addEventListener('click',()=>{
-  document.body.classList.toggle('dark');
-  localStorage.setItem('theme',
-    document.body.classList.contains('dark')?'dark':'light');
-});
-
-// PRINT
-document.getElementById('printBtn').addEventListener('click',()=>window.print());
 </script>
 
 </body>
