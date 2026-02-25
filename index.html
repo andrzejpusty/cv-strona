@@ -1,561 +1,318 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Andrzej Pusty — CV</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light dark">
+<title>Andrzej Pusty — CV</title>
 
-  <!-- Optional: nicer font (works even if blocked; falls back to system font) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --navy:#0b4f78;
-      --navy2:#083f60;
-      --text:#18222b;
-      --muted:#5e6b76;
-      --line:#e6eaee;
-      --bg:#ffffff;
-      --chip:#eef5fb;
-      --chipText:#0b4f78;
-      --shadow: 0 12px 30px rgba(0,0,0,.08);
-    }
+<style>
+:root{
+  --navy:#0b4f78;
+  --navy2:#083f60;
+  --text:#18222b;
+  --muted:#5e6b76;
+  --line:#e6eaee;
+  --bg:#ffffff;
+  --chip:#eef5fb;
+  --chipText:#0b4f78;
+  --shadow: 0 12px 30px rgba(0,0,0,.08);
+}
 
-    *{ box-sizing:border-box; }
-    html, body{ height:100%; }
-    body{
-      margin:0;
-      font-family: Inter, Arial, sans-serif;
-      color:var(--text);
-      background:#f5f7fa;
-    }
+body.dark{
+  --bg:#0f1720;
+  --text:#e6edf3;
+  --muted:#9aa7b3;
+  --line:#1f2a33;
+  --chip:#1b2a36;
+  --chipText:#8ecfff;
+  background:#0f1720;
+}
 
-    a{ color: inherit; text-decoration: none; }
-    a:hover{ text-decoration: underline; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter, Arial, sans-serif;
+  color:var(--text);
+  background:#f5f7fa;
+}
 
-    .page{
-      max-width: 1100px;
-      margin: 24px auto;
-      background: var(--bg);
-      border: 1px solid #eef2f5;
-      box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 330px 1fr;
-      overflow: hidden;
-    }
+body.dark{background:#0f1720}
 
-    /* LEFT */
-    .left{
-      background: linear-gradient(180deg, var(--navy), var(--navy2));
-      color:#fff;
-      padding: 28px 22px;
-    }
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
 
-    .name{
-      font-size: 40px;
-      font-weight: 900;
-      line-height: 1.05;
-      margin: 0 0 10px 0;
-      letter-spacing: .2px;
-    }
+.page{
+  max-width:1100px;
+  margin:24px auto;
+  background:var(--bg);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:330px 1fr;
+  overflow:hidden;
+}
 
-    .role{
-      margin: 0 0 16px 0;
-      opacity: .95;
-      font-size: 14px;
-      letter-spacing: .2px;
-      font-weight: 600;
-    }
+/* LEFT */
+.left{
+  background:linear-gradient(180deg,var(--navy),var(--navy2));
+  color:#fff;
+  padding:28px 22px;
+}
 
-    .left h3{
-      margin: 20px 0 10px 0;
-      font-size: 18px;
-      letter-spacing: .2px;
-      font-weight: 800;
-    }
+.name{
+  font-size:40px;
+  font-weight:900;
+  margin:0 0 10px;
+}
 
-    .card{
-      border-top: 1px solid rgba(255,255,255,.18);
-      padding-top: 12px;
-      margin-top: 12px;
-    }
+.role{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:20px;
+}
 
-    .label{
-      font-size: 12px;
-      opacity: .92;
-      margin: 12px 0 4px 0;
-      font-weight: 800;
-      letter-spacing: .25px;
-      text-transform: uppercase;
-    }
+.left h3{margin:20px 0 10px;font-size:18px}
 
-    .value{
-      margin: 0;
-      font-size: 14px;
-      opacity: .98;
-      line-height: 1.35;
-      word-break: break-word;
-      font-weight: 500;
-    }
+.value{font-size:14px;margin:6px 0}
+.value a{color:#fff}
 
-    .value a{ color:#fff; }
+.skills{list-style:none;padding:0;margin:0}
+.skills li{margin:8px 0;font-size:14px}
+.skills strong{display:block;font-size:13px;margin-bottom:3px}
 
-    .skills{
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+/* RIGHT */
+.right{padding:28px 34px}
 
-    .skills li{
-      margin: 10px 0;
-      line-height: 1.35;
-      font-size: 14px;
-      font-weight: 500;
-    }
+.section{margin-top:20px}
+.section-title{
+  font-size:22px;
+  font-weight:900;
+  color:var(--navy2);
+}
+.divider{
+  height:2px;
+  background:var(--line);
+  margin:10px 0 15px;
+}
 
-    .skills strong{
-      display:block;
-      font-size: 13px;
-      opacity:.92;
-      margin-bottom: 3px;
-      letter-spacing: .15px;
-      font-weight: 800;
-    }
+/* TOOLBAR */
+.toolbar{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:15px;
+}
 
-    .small-note{
-      font-size: 12.5px;
-      opacity: .92;
-      line-height: 1.4;
-      margin: 8px 0 0 0;
-    }
+.filter-chip,.filter-clear,.action-btn{
+  border:1px solid var(--line);
+  background:var(--chip);
+  color:var(--chipText);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
 
-    /* RIGHT */
-    .right{
-      padding: 28px 34px;
-    }
+.filter-chip.active{
+  background:var(--navy);
+  color:#fff;
+}
 
-    .top{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-bottom: 8px;
-    }
+.job.hidden{display:none}
 
-    .summary{
-      margin: 0;
-      line-height: 1.65;
-      font-size: 14.5px;
-      color: var(--text);
-    }
+/* ACCORDION */
+.job{
+  border-bottom:1px solid var(--line);
+  padding:10px 0;
+}
 
-    .highlights{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+.job-summary{
+  list-style:none;
+  cursor:pointer;
+  display:grid;
+  grid-template-columns:140px 1fr 24px;
+  gap:18px;
+  align-items:start;
+}
 
-    .highlight{
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: #fbfcfe;
-      box-shadow: 0 2px 10px rgba(0,0,0,.03);
-      font-size: 13.5px;
-      line-height: 1.4;
-    }
+.job-summary::-webkit-details-marker{display:none}
 
-    .section{
-      margin-top: 18px;
-    }
+.chev{
+  font-weight:900;
+  transition:.2s;
+}
 
-    .section-title{
-      margin: 0;
-      font-size: 22px;
-      color: var(--navy2);
-      font-weight: 900;
-      letter-spacing: .2px;
-    }
+.job[open] .chev{
+  transform:rotate(180deg);
+}
 
-    .divider{
-      height: 2px;
-      background: var(--line);
-      margin: 10px 0 14px 0;
-    }
+.bullets{padding-left:18px;font-size:14px}
+.achievement{
+  background:#f7fbff;
+  border-left:4px solid var(--navy);
+  padding:8px 10px;
+  margin:8px 0;
+  border-radius:8px;
+  font-size:13px;
+}
 
-    .item{
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 18px;
-      padding: 10px 0;
-    }
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:8px;
+}
+.chip{
+  background:var(--chip);
+  color:var(--chipText);
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+}
 
-    .date{
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-      white-space: nowrap;
-      font-weight: 600;
-    }
-
-    .title{
-      margin: 0;
-      font-weight: 900;
-      font-size: 16px;
-    }
-
-    .company{
-      margin: 4px 0 8px 0;
-      font-style: italic;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .bullets{
-      margin: 0;
-      padding-left: 18px;
-      line-height: 1.55;
-      font-size: 14px;
-    }
-    .bullets li{ margin: 4px 0; }
-
-    .achievements{
-      margin: 10px 0 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
-
-    .achievement{
-      border-left: 4px solid var(--navy);
-      background: #f7fbff;
-      border-radius: 10px;
-      padding: 10px 12px;
-      font-size: 13.5px;
-      line-height: 1.45;
-    }
-
-    .chips{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .chip{
-      background: var(--chip);
-      color: var(--chipText);
-      border: 1px solid #d9e9f7;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12.5px;
-      font-weight: 700;
-      letter-spacing: .15px;
-    }
-
-    .footer-note{
-      margin-top: 28px;
-      font-size: 11px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      padding-top: 10px;
-      line-height: 1.35;
-    }
-
-    /* CONTACT GRID for mobile */
-    .contact-grid{
-      display:none;
-      margin-top: 14px;
-      gap: 10px;
-      grid-template-columns: 1fr 1fr;
-    }
-    .contact-tile{
-      border: 1px solid rgba(255,255,255,.22);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: rgba(255,255,255,.08);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .contact-tile .k{
-      display:block;
-      font-size: 11px;
-      opacity: .9;
-      font-weight: 800;
-      letter-spacing: .25px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 980px){
-      .page{
-        grid-template-columns: 1fr;
-        margin: 0;
-        border: 0;
-        box-shadow: none;
-      }
-
-      .left{
-        padding: 18px 16px;
-      }
-
-      .name{
-        font-size: 32px;
-      }
-
-      .right{
-        padding: 18px 16px;
-      }
-
-      .highlights{
-        grid-template-columns: 1fr;
-      }
-
-      .item{
-        grid-template-columns: 1fr;
-        gap: 6px;
-        padding: 12px 0;
-      }
-
-      .date{
-        white-space: normal;
-        font-size: 12.5px;
-      }
-
-      /* On mobile show contact tiles and keep sidebar compact */
-      .card.personals{ display:none; }
-      .contact-grid{ display:grid; }
-    }
-
-    @media (max-width: 420px){
-      .name{ font-size: 28px; }
-      .summary{ font-size: 14px; }
-      .title{ font-size: 15px; }
-      .bullets{ font-size: 13.5px; }
-      .achievement{ font-size: 13.2px; }
-      .chip{ font-size: 12px; }
-    }
-  </style>
+/* PRINT */
+@media print{
+  body{background:#fff}
+  .toolbar{display:none}
+  .page{box-shadow:none;border:none;margin:0}
+}
+@media(max-width:980px){
+  .page{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
-  <main class="page">
 
-    <!-- LEFT PANEL -->
-    <aside class="left">
-      <h1 class="name">Andrzej Pusty</h1>
-      <p class="role">Administrator systemów IT / DevOps</p>
+<main class="page">
 
-      <!-- Mobile contact tiles -->
-      <div class="contact-grid">
-        <div class="contact-tile">
-          <span class="k">E-mail</span>
-          <a href="mailto:andrzej.pusty@gmail.com">andrzej.pusty@gmail.com</a>
-        </div>
-        <div class="contact-tile">
-          <span class="k">Telefon</span>
-          <a href="tel:+48697474570">+48 697 474 570</a>
-        </div>
-        <div class="contact-tile">
-          <span class="k">LinkedIn</span>
-          <a href="https://linkedin.com/in/twoj-profil" target="_blank" rel="noopener">Profil</a>
-        </div>
-        <div class="contact-tile">
-          <span class="k">GitHub</span>
-          <a href="https://github.com/twoj-login" target="_blank" rel="noopener">Repo</a>
-        </div>
-      </div>
+<aside class="left">
+  <h1 class="name">Andrzej Pusty</h1>
+  <p class="role">Administrator systemów IT / DevOps</p>
 
-      <!-- Desktop personal data -->
-      <div class="card personals">
-        <h3>Dane osobowe</h3>
+  <h3>Dane kontaktowe</h3>
+  <p class="value">📧 andrzej.pusty@gmail.com</p>
+  <p class="value">📱 +48 697 474 570</p>
+  <p class="value">📍 Poznań</p>
 
-        <div class="label">E-mail</div>
-        <p class="value">
-          <a href="mailto:andrzej.pusty@gmail.com">andrzej.pusty@gmail.com</a>
-        </p>
+  <h3>Umiejętności</h3>
+  <ul class="skills">
+    <li><strong>Systemy</strong>Linux, Windows Server</li>
+    <li><strong>Automatyzacja</strong>Ansible, Bash, CI/CD</li>
+    <li><strong>Kontenery</strong>Docker</li>
+    <li><strong>DB</strong>PostgreSQL, Oracle, MongoDB</li>
+  </ul>
+</aside>
 
-        <div class="label">Numer telefonu</div>
-        <p class="value">
-          <a href="tel:+48697474570">+48 697 474 570</a>
-        </p>
+<section class="right">
 
-        <div class="label">Lokalizacja</div>
-        <p class="value">Poznań</p>
+<div class="section" id="doswiadczenie">
+<h2 class="section-title">Doświadczenie</h2>
+<div class="divider"></div>
 
-        <div class="label">LinkedIn</div>
-        <p class="value">
-          <a href="https://linkedin.com/in/twoj-profil" target="_blank" rel="noopener">linkedin.com/in/twoj-profil</a>
-        </p>
+<div class="toolbar">
+  <div>
+    <button class="filter-chip" data-filter="linux">Linux</button>
+    <button class="filter-chip" data-filter="docker">Docker</button>
+    <button class="filter-chip" data-filter="ansible">Ansible</button>
+    <button class="filter-clear" id="filtersClear">Wyczyść</button>
+  </div>
+  <div>
+    <button class="action-btn" id="themeToggle">🌙 Tryb nocny</button>
+    <button class="action-btn" id="printBtn">⬇️ Pobierz PDF</button>
+  </div>
+</div>
 
-        <div class="label">GitHub</div>
-        <p class="value">
-          <a href="https://github.com/twoj-login" target="_blank" rel="noopener">github.com/twoj-login</a>
-        </p>
-      </div>
+<details class="job" open data-tags="linux ansible docker">
+<summary class="job-summary">
+<div>2024–obecnie</div>
+<div>
+<p><strong>Administrator systemów IT</strong></p>
+<p>SGB-Bank</p>
+</div>
+<span class="chev">▾</span>
+</summary>
+<div>
+<ul class="bullets">
+<li>Administracja Linux</li>
+<li>Automatyzacja (Ansible, Bash)</li>
+<li>Monitoring i analiza logów</li>
+</ul>
+<div class="achievement"><strong>Usprawnienia:</strong> automatyzacja procesów.</div>
+<div class="chips">
+<span class="chip">Linux</span>
+<span class="chip">Ansible</span>
+<span class="chip">Docker</span>
+</div>
+</div>
+</details>
 
-      <div class="card">
-        <h3>Umiejętności (Core)</h3>
-        <ul class="skills">
-          <li><strong>Systemy</strong>Linux (RHEL), Windows Server</li>
-          <li><strong>Automatyzacja</strong>Ansible, Bash, Jenkins, GitLab CI/CD</li>
-          <li><strong>Monitoring</strong>Zabbix, Nagios, Grafana, Dynatrace</li>
-          <li><strong>Kontenery</strong>Docker, Tomcat, Apache</li>
-          <li><strong>DB</strong>PostgreSQL, Oracle, MongoDB</li>
-          <li><strong>Middleware</strong>Kafka, RabbitMQ, Hazelcast</li>
-          <li><strong>Sieci/Security</strong>Fortigate, SonicWall, Cisco</li>
-        </ul>
+</div>
 
-        <p class="small-note">
-          Angielski: techniczny (dokumentacja) + komunikacja.
-        </p>
-      </div>
+</section>
+</main>
 
-      <div class="card">
-        <h3>Certyfikaty</h3>
-        <p class="value"><strong>CISCO</strong> CCNA (Egzamin 200-125)</p>
-      </div>
-    </aside>
+<script>
+// FILTROWANIE
+const chips = document.querySelectorAll('.filter-chip');
+const jobs = document.querySelectorAll('.job');
+const clearBtn = document.getElementById('filtersClear');
+let active = new Set();
 
-    <!-- RIGHT CONTENT -->
-    <section class="right">
+function applyFilters(){
+  jobs.forEach(job=>{
+    const tags = job.dataset.tags;
+    const match = [...active].every(f=>tags.includes(f));
+    job.classList.toggle('hidden', active.size>0 && !match);
+  });
+}
 
-      <div class="top">
-        <p class="summary">
-          Administrator systemów IT z 7+ lat doświadczenia w Linux, automatyzacji i utrzymaniu usług
-          w środowiskach o wysokiej dostępności. Dobrze czuję się w diagnozowaniu problemów (logi/monitoring),
-          usprawnianiu procesów (CI/CD, IaC) i współpracy z developerami przy wdrożeniach.
-        </p>
+chips.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const f = btn.dataset.filter;
+    if(active.has(f)){
+      active.delete(f);
+      btn.classList.remove('active');
+    }else{
+      active.add(f);
+      btn.classList.add('active');
+    }
+    applyFilters();
+  });
+});
 
-        <ul class="highlights">
-          <li class="highlight"><strong>Linux/Infra:</strong> administracja, monitoring, analiza logów, utrzymanie usług.</li>
-          <li class="highlight"><strong>Automatyzacja:</strong> Bash/Ansible + CI/CD (Jenkins, GitLab CI) dla powtarzalnych zadań.</li>
-          <li class="highlight"><strong>Kontenery:</strong> Docker + wsparcie aplikacji (Tomcat/Apache), wdrożenia test/prod.</li>
-          <li class="highlight"><strong>DB i integracje:</strong> PostgreSQL/Oracle/MongoDB, Kafka/RabbitMQ/Hazelcast.</li>
-        </ul>
-      </div>
+clearBtn.addEventListener('click',()=>{
+  active.clear();
+  chips.forEach(c=>c.classList.remove('active'));
+  applyFilters();
+});
 
-      <div class="section">
-        <h2 class="section-title">Doświadczenie</h2>
-        <div class="divider"></div>
+// DARK MODE
+const toggle = document.getElementById('themeToggle');
+if(localStorage.getItem('theme')==='dark'){
+  document.body.classList.add('dark');
+}
+toggle.addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme',
+    document.body.classList.contains('dark')?'dark':'light'
+  );
+});
 
-        <div class="item">
-          <div class="date">2024-12<br>– obecnie</div>
-          <div>
-            <p class="title">Administrator systemów IT</p>
-            <p class="company">SGB-Bank</p>
+// PRINT
+document.getElementById('printBtn').addEventListener('click',()=>{
+  window.print();
+});
+</script>
 
-            <ul class="bullets">
-              <li>Administrowanie i monitorowanie systemów Linux oraz aplikacji bankowych</li>
-              <li>Automatyzacja procesów i zadań operacyjnych (Ansible, Bash)</li>
-              <li>Analiza logów i rozwiązywanie problemów aplikacyjnych/systemowych</li>
-              <li>Współpraca z developerami – wdrożenia i testowanie nowych wersji aplikacji</li>
-              <li>Tworzenie i utrzymanie dokumentacji</li>
-            </ul>
-
-            <ul class="achievements">
-              <li class="achievement"><strong>Usprawnienia:</strong> automatyzacja rutynowych działań administracyjnych, mniej ręcznej pracy i szybsza reakcja na incydenty.</li>
-              <li class="achievement"><strong>Stabilność:</strong> wsparcie monitoringu/alertingu oraz analiza logów pod kątem przyczyn źródłowych (RCA).</li>
-            </ul>
-
-            <div class="chips" aria-label="Stack">
-              <span class="chip">Linux</span>
-              <span class="chip">Ansible</span>
-              <span class="chip">Bash</span>
-              <span class="chip">Monitoring</span>
-              <span class="chip">CI/CD</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="date">2018-02<br>– 2024-11</div>
-          <div>
-            <p class="title">Administrator systemów IT</p>
-            <p class="company">Santander Bank Polska</p>
-
-            <ul class="bullets">
-              <li>Administracja systemami Linux oraz utrzymanie środowisk</li>
-              <li>Automatyzacja powtarzalnych czynności (skrypty, pipeline’y)</li>
-              <li>Zarządzanie aplikacjami w kontenerach Docker</li>
-              <li>Wdrażanie aplikacji na środowiska testowe i produkcyjne</li>
-              <li>Aktualizacje (patchowanie), dyżur on-call, udział w DR</li>
-              <li>Zarządzanie bazami danych (Oracle, PostgreSQL, MongoDB)</li>
-            </ul>
-
-            <ul class="achievements">
-              <li class="achievement"><strong>Automatyzacja:</strong> ograniczenie manualnych operacji przez skrypty/pipeline’y dla zadań cyklicznych.</li>
-              <li class="achievement"><strong>Operacje:</strong> wsparcie wdrożeń oraz praca w trybie on-call, szybka diagnostyka problemów produkcyjnych.</li>
-            </ul>
-
-            <div class="chips" aria-label="Stack">
-              <span class="chip">Linux</span>
-              <span class="chip">Docker</span>
-              <span class="chip">GitLab CI</span>
-              <span class="chip">Jenkins</span>
-              <span class="chip">PostgreSQL</span>
-              <span class="chip">Oracle</span>
-              <span class="chip">MongoDB</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="date">2009-02<br>– 2018-04</div>
-          <div>
-            <p class="title">Informatyk</p>
-            <p class="company">AdvaCom Sp. z o.o.</p>
-
-            <ul class="bullets">
-              <li>Opieka nad infrastrukturą sieciową (LAN/WLAN/WAN)</li>
-              <li>Opieka nad serwerami (VMware, Linux, Windows)</li>
-              <li>Monitoring urządzeń i usług (Nagios)</li>
-              <li>Administracja firewall (Fortigate, SonicWall, Cisco)</li>
-              <li>Backup i odtwarzanie kopii zapasowych</li>
-              <li>Wsparcie użytkowników oraz rozwiązywanie problemów</li>
-            </ul>
-
-            <ul class="achievements">
-              <li class="achievement"><strong>Utrzymanie:</strong> stała opieka nad środowiskiem i poprawa ciągłości działania usług.</li>
-            </ul>
-
-            <div class="chips" aria-label="Stack">
-              <span class="chip">VMware</span>
-              <span class="chip">Windows Server</span>
-              <span class="chip">Linux</span>
-              <span class="chip">Nagios</span>
-              <span class="chip">Fortigate</span>
-              <span class="chip">Cisco</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 class="section-title">Wykształcenie</h2>
-        <div class="divider"></div>
-
-        <div class="item">
-          <div class="date">2002-10<br>– 2006-05</div>
-          <div>
-            <p class="title">Informatyka, Inżynier</p>
-            <p class="company">Wyższa Szkoła Humanistyczno-Ekonomiczna w Łodzi, Łódź</p>
-          </div>
-        </div>
-      </div>
-
-      <p class="footer-note">
-        *Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z RODO.
-      </p>
-    </section>
-
-  </main>
 </body>
 </html>
