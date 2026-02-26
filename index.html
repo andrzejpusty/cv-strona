@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-/* ZAWSZE DARK */
 :root{
   --navy:#0b4f78;
   --navy2:#083f60;
@@ -41,7 +40,6 @@ body{
   color:var(--text);
 }
 
-/* page */
 .wrap{
   max-width:1050px;
   margin:28px auto;
@@ -56,7 +54,6 @@ body{
   border:1px solid rgba(255,255,255,.06);
 }
 
-/* header / actions */
 .topbar{
   display:flex;
   justify-content:flex-end;
@@ -120,7 +117,6 @@ body{
   pointer-events:none;
 }
 
-/* hero text */
 .hero h1{
   margin:0;
   font-size:42px;
@@ -142,7 +138,6 @@ body{
   max-width:820px;
   background:linear-gradient(180deg, rgba(17,24,39,.85), rgba(17,24,39,.65));
 }
-
 .term-bar{
   display:flex;
   align-items:center;
@@ -151,21 +146,11 @@ body{
   border-bottom:1px solid rgba(255,255,255,.06);
   background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
 }
-
-.dots{
-  display:flex;
-  gap:7px;
-}
-.dot{
-  width:10px;
-  height:10px;
-  border-radius:999px;
-  opacity:.9;
-}
+.dots{ display:flex; gap:7px; }
+.dot{ width:10px; height:10px; border-radius:999px; opacity:.9; }
 .dot.red{ background:#ff5f57; }
 .dot.yellow{ background:#febc2e; }
 .dot.green{ background:#28c840; }
-
 .term-title{
   font-size:12px;
   font-weight:800;
@@ -179,23 +164,10 @@ body{
   line-height:1.55;
   color:#d7e6ff;
 }
-
-.prompt{
-  color:#7dd3fc;
-}
-.path{
-  color:#a78bfa;
-}
-.cmd{
-  color:#e9eef3;
-}
-
-#typeTarget{
-  white-space:pre-wrap; /* zachowaj nowe linie */
-  word-break:break-word;
-}
-
-/* kursor */
+.prompt{ color:#7dd3fc; }
+.path{ color:#a78bfa; }
+.cmd{ color:#e9eef3; }
+#typeTarget{ white-space:pre-wrap; word-break:break-word; }
 .cursor{
   display:inline-block;
   width:8px;
@@ -205,14 +177,10 @@ body{
   vertical-align:-2px;
   animation:blink 1s steps(2, jump-none) infinite;
 }
-@keyframes blink{
-  50%{ opacity:0; }
-}
+@keyframes blink{ 50%{ opacity:0; } }
 
 /* accordions */
-.content{
-  padding:22px 24px 26px;
-}
+.content{ padding:22px 24px 26px; }
 
 details.acc{
   background:var(--card);
@@ -224,7 +192,6 @@ details.acc{
   transition:.2s ease;
 }
 
-/* niebieskie wyróżnienie */
 summary{
   list-style:none;
   cursor:pointer;
@@ -291,9 +258,7 @@ details[open] summary .chev{
   color:#9ad0ff;
   border-color:rgba(154,208,255,.20);
 }
-details.acc[open]{
-  box-shadow:0 14px 30px rgba(0,0,0,.25);
-}
+details.acc[open]{ box-shadow:0 14px 30px rgba(0,0,0,.25); }
 
 .acc-body{
   padding:0 18px 18px 18px;
@@ -395,7 +360,6 @@ details.acc[open]{
   .hero h1{ font-size:34px; }
   .contact-grid{ grid-template-columns:1fr; }
 
-  /* MOBILE: zawijaj hinty do 2 linii */
   .sum-hint{
     white-space:normal;
     overflow:visible;
@@ -413,7 +377,6 @@ details.acc[open]{
   .icon{ width:34px; height:34px; border-radius:11px; }
 }
 
-/* PRINT (zostawiamy, ale PDF pobierasz jako plik z linka) */
 @media print{
   body{ background:#fff; color:#111; }
   .wrap{ margin:0; padding:0; }
@@ -441,7 +404,6 @@ details.acc[open]{
         <h1>Andrzej Pusty</h1>
         <div class="role">Administrator systemów IT / DevOps</div>
 
-        <!-- Terminal z animacją pisania -->
         <div class="terminal" aria-label="Opis w stylu terminala">
           <div class="term-bar">
             <div class="dots" aria-hidden="true">
@@ -493,15 +455,18 @@ details.acc[open]{
             <p class="title">Administrator systemów IT</p>
             <p class="company">SGB-Bank</p>
             <ul class="bullets">
-              <li>Administracja systemami Linux oraz aplikacjami bankowymi</li>
-              <li>Automatyzacja procesów (Ansible, Bash)</li>
-              <li>Analiza logów i rozwiązywanie problemów</li>
-              <li>Współpraca z developerami</li>
+              <li>Administrowanie i monitorowanie systemów Linux oraz aplikacji bankowych</li>
+              <li>Tworzenie i rozwijanie skryptów Bash oraz automatyzacja procesów IT (Ansible, GitLab)</li>
+              <li>Analiza logów i rozwiązywanie problemów aplikacyjnych</li>
+              <li>Współpraca z developerami: wdrażanie i testowanie nowych wersji aplikacji</li>
+              <li>Tworzenie i aktualizacja dokumentacji</li>
             </ul>
             <div class="chips">
               <span class="chip">Linux</span>
+              <span class="chip">Bash</span>
               <span class="chip">Ansible</span>
-              <span class="chip">Docker</span>
+              <span class="chip">GitLab</span>
+              <span class="chip">Monitoring</span>
             </div>
           </div>
 
@@ -519,6 +484,7 @@ details.acc[open]{
             <div class="chips">
               <span class="chip">Linux</span>
               <span class="chip">Docker</span>
+              <span class="chip">CI/CD</span>
               <span class="chip">PostgreSQL</span>
               <span class="chip">Oracle</span>
             </div>
@@ -537,6 +503,8 @@ details.acc[open]{
             <div class="chips">
               <span class="chip">VMware</span>
               <span class="chip">Windows</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Sieci</span>
               <span class="chip">Nagios</span>
             </div>
           </div>
@@ -706,18 +674,15 @@ doświadczenie w pracy z rozwiązaniami CI/CD, zapewnianiu wysokiej dostępnośc
 optymalizacji procesów IT. Skutecznie rozwiązuję problemy aplikacyjne i systemowe w
 środowiskach testowych oraz produkcyjnych`;
 
-function typeInto(el, text, speedMs = 16){
+function typeInto(el, text, speedMs = 14){
   let i = 0;
   const tick = () => {
-    // „pisanie” znak po znaku
     el.textContent = text.slice(0, i);
     i++;
     if(i <= text.length){
-      // lekka losowość jak w terminalu
       const jitter = Math.random() < 0.04 ? 70 : 0;
       setTimeout(tick, speedMs + jitter);
     }else{
-      // schowaj kursor po zakończeniu po chwili
       const cursor = document.getElementById('cursor');
       if(cursor) setTimeout(() => cursor.style.display = 'none', 600);
     }
