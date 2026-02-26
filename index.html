@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Andrzej Pusty — CV</title>
 
+<meta name="description" content="Administrator systemów IT / DevOps z 7+ lat doświadczenia w Linux i środowiskach bankowych. Automatyzacja, monitoring, HA.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -20,10 +22,10 @@
   --line:#e6eaee;
 
   --bg:#ffffff;
-  --pageBg:#f5f7fa;
+  --pageBg:#f3f6fa;
 
   --card:#ffffff;
-  --shadow: 0 12px 30px rgba(0,0,0,.06);
+  --shadow:0 18px 40px rgba(0,0,0,.06);
 
   --chip:#eef5fb;
   --chipText:#0b4f78;
@@ -38,7 +40,7 @@ body.dark{
   --pageBg:#0b1220;
 
   --card:#111827;
-  --shadow: 0 14px 36px rgba(0,0,0,.35);
+  --shadow:0 20px 45px rgba(0,0,0,.35);
 
   --chip:#132a3d;
   --chipText:#9ad0ff;
@@ -56,62 +58,84 @@ body{
 /* LAYOUT */
 .page{
   max-width:1100px;
-  margin:28px auto;
+  margin:40px auto;
   background:var(--bg);
-  border-radius:18px;
+  border-radius:20px;
   overflow:hidden;
   box-shadow:var(--shadow);
   display:grid;
   grid-template-columns:330px 1fr;
+  border:1px solid rgba(0,0,0,.04);
 }
 
 /* LEFT */
 .left{
   background:linear-gradient(180deg,var(--navy),var(--navy2));
   color:#fff;
-  padding:32px 24px;
+  padding:40px 28px;
 }
+
 .name{
   font-size:38px;
   font-weight:900;
-  margin:0 0 10px;
+  margin:0 0 8px;
+  letter-spacing:-.5px;
 }
+
 .role{
   font-size:14px;
   opacity:.95;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
+
 .left h3{
-  margin:20px 0 10px;
-  font-size:16px;
+  margin:24px 0 12px;
+  font-size:13px;
   font-weight:800;
-  letter-spacing:.5px;
+  letter-spacing:1px;
   text-transform:uppercase;
 }
+
 .card{
   border-top:1px solid rgba(255,255,255,.2);
-  padding-top:12px;
-  margin-top:12px;
+  padding-top:14px;
+  margin-top:14px;
 }
+
 .label{
   font-size:11px;
   font-weight:800;
   margin-top:12px;
   text-transform:uppercase;
+  opacity:.85;
 }
+
 .value{
   font-size:14px;
   margin:4px 0;
+  word-break:break-word;
 }
+
+.value a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.9;
+}
+.value a:hover{
+  text-decoration:underline;
+}
+
 .skills{
   list-style:none;
   padding:0;
   margin:0;
 }
+
 .skills li{
-  margin:8px 0;
+  margin:10px 0;
   font-size:14px;
 }
+
 .skills strong{
   display:block;
   font-size:11px;
@@ -121,7 +145,7 @@ body{
 
 /* RIGHT */
 .right{
-  padding:32px 40px;
+  padding:40px 48px;
 }
 
 /* ACTIONS */
@@ -129,54 +153,46 @@ body{
   display:flex;
   justify-content:flex-end;
   gap:12px;
-  margin-bottom:20px;
+  margin-bottom:24px;
 }
+
 .btn{
   border:0;
   cursor:pointer;
   border-radius:999px;
-  padding:8px 16px;
+  padding:9px 18px;
   font-weight:700;
   font-size:13px;
   background:var(--accent);
   color:#fff;
   transition:.2s;
 }
+
 .btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 8px 18px rgba(0,0,0,.15);
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
-/* PROFILE */
+/* SUMMARY */
 .summary{
   font-size:15px;
-  line-height:1.6;
-  margin-bottom:24px;
+  line-height:1.7;
+  margin-bottom:30px;
+  max-width:720px;
 }
 
-/* SECTION (fade-in) */
+/* SECTIONS */
 .section{
-  margin-top:28px;
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp .6s ease forwards;
-}
-.section:nth-of-type(2){ animation-delay:.1s; }
-.section:nth-of-type(3){ animation-delay:.2s; }
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  margin-top:34px;
 }
 
 .section-title{
   font-size:22px;
   font-weight:900;
-  margin:0 0 14px;
+  margin:0 0 16px;
   position:relative;
 }
+
 .section-title::after{
   content:"";
   position:absolute;
@@ -193,13 +209,14 @@ body{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:14px;
-  padding:18px 20px;
+  padding:20px 22px;
   margin-bottom:18px;
   transition:.25s ease;
 }
+
 .item:hover{
   transform:translateY(-4px);
-  box-shadow:0 14px 30px rgba(0,0,0,.08);
+  box-shadow:0 16px 30px rgba(0,0,0,.08);
 }
 
 .date{
@@ -208,57 +225,52 @@ body{
   color:var(--muted);
   margin-bottom:6px;
 }
+
 .title{
   font-size:16px;
   font-weight:900;
   margin:0;
 }
+
 .company{
   font-size:14px;
   font-style:italic;
   color:var(--muted);
   margin:4px 0 10px;
 }
+
 .bullets{
   margin:0;
   padding-left:18px;
   font-size:14px;
-  line-height:1.5;
+  line-height:1.6;
 }
 
-/* CHIPS (bigger + icons-friendly) */
+/* CHIPS */
 .chips{
-  margin-top:10px;
+  margin-top:12px;
 }
+
 .chip{
   display:inline-flex;
   align-items:center;
-  gap:6px;
   padding:7px 14px;
   border-radius:999px;
-  font-size:13px;
+  font-size:12px;
   font-weight:700;
   background:var(--chip);
   color:var(--chipText);
   margin:6px 8px 0 0;
-  transition:.2s ease;
-}
-.chip svg{
-  flex:0 0 auto;
-  opacity:.95;
-}
-.chip:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 14px rgba(0,0,0,.08);
+  border:1px solid rgba(31,111,235,.15);
 }
 
 /* FOOTER */
 .footer{
   font-size:11px;
   color:var(--muted);
-  margin-top:30px;
+  margin-top:34px;
   border-top:1px solid var(--line);
-  padding-top:12px;
+  padding-top:14px;
 }
 
 /* RESPONSIVE */
@@ -268,16 +280,45 @@ body{
     border-radius:0;
     margin:0;
   }
-  .right{padding:24px;}
+  .right{padding:28px;}
 }
+
+/* PRINT VERSION (PDF) */
 @media print{
-  .actions{display:none;}
-  .item{break-inside:avoid;}
+  body{
+    background:#fff;
+  }
+
+  .page{
+    box-shadow:none;
+    border:none;
+    margin:0;
+  }
+
+  .actions{
+    display:none;
+  }
+
+  .item{
+    box-shadow:none;
+    border:1px solid #ddd;
+    padding:14px;
+    margin-bottom:10px;
+  }
+
+  .section{
+    margin-top:22px;
+  }
+
+  .summary{
+    margin-bottom:18px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <main class="page">
 
 <aside class="left">
@@ -288,10 +329,19 @@ body{
 <h3>Dane kontaktowe</h3>
 <div class="label">E-mail</div>
 <p class="value">andrzej.pusty@gmail.com</p>
+
 <div class="label">Telefon</div>
 <p class="value">+48 697 474 570</p>
+
 <div class="label">Lokalizacja</div>
 <p class="value">Poznań</p>
+
+<div class="label">LinkedIn</div>
+<p class="value">
+  <a href="https://www.linkedin.com/in/example-profile" target="_blank">
+    linkedin.com/in/example-profile
+  </a>
+</p>
 </div>
 
 <div class="card">
@@ -301,7 +351,7 @@ body{
 <li><strong>Automatyzacja</strong>Ansible, Bash, Jenkins, GitLab CI/CD</li>
 <li><strong>Monitoring</strong>Zabbix, Nagios, Grafana, Dynatrace</li>
 <li><strong>Kontenery</strong>Docker, Tomcat, Apache</li>
-<li><strong>DB</strong>PostgreSQL, Oracle, MongoDB</li>
+<li><strong>Bazy danych</strong>PostgreSQL, Oracle, MongoDB</li>
 <li><strong>Middleware</strong>Kafka, RabbitMQ, Hazelcast</li>
 <li><strong>Sieci</strong>Fortigate, SonicWall, Cisco</li>
 </ul>
@@ -309,21 +359,22 @@ body{
 
 <div class="card">
 <h3>Certyfikat</h3>
-<p class="value">CISCO CCNA (200-125)</p>
+<p class="value">Cisco CCNA (200-125)</p>
 </div>
 </aside>
 
 <section class="right">
 
 <div class="actions">
-<button class="btn" onclick="toggleTheme()">Tryb nocny</button>
+<button class="btn" onclick="toggleTheme()" id="themeBtn">Tryb nocny</button>
 <button class="btn" onclick="window.print()">Pobierz PDF</button>
 </div>
 
 <p class="summary">
-Administrator systemów IT z 7+ lat doświadczenia w Linux i środowiskach bankowych.
-Specjalizuję się w automatyzacji (Ansible, Bash), monitoringu oraz utrzymaniu
-środowisk o wysokiej dostępności. Doświadczony we współpracy z zespołami developerskimi.
+Administrator systemów IT z ponad 7-letnim doświadczeniem w środowiskach Linux oraz sektorze bankowym.
+Specjalizuję się w automatyzacji procesów (Ansible, Bash), monitoringu oraz utrzymaniu środowisk
+o wysokiej dostępności (HA). Posiadam doświadczenie we współpracy z zespołami developerskimi
+oraz wdrażaniu aplikacji w środowiskach testowych i produkcyjnych.
 </p>
 
 <div class="section">
@@ -335,32 +386,14 @@ Specjalizuję się w automatyzacji (Ansible, Bash), monitoringu oraz utrzymaniu
 <p class="company">SGB-Bank</p>
 <ul class="bullets">
 <li>Administracja systemami Linux oraz aplikacjami bankowymi</li>
-<li>Automatyzacja procesów (Ansible, Bash)</li>
-<li>Analiza logów i rozwiązywanie problemów</li>
-<li>Współpraca z developerami</li>
+<li>Automatyzacja procesów z wykorzystaniem Ansible i Bash</li>
+<li>Analiza logów oraz rozwiązywanie incydentów</li>
+<li>Współpraca z zespołami developerskimi</li>
 </ul>
 <div class="chips">
-  <span class="chip">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C8 2 6 5 6 8c0 1.5.5 3 1.5 4L6 18c2 1 4 2 6 2s4-1 6-2l-1.5-6c1-1 1.5-2.5 1.5-4 0-3-2-6-6-6z"/>
-    </svg>
-    Linux
-  </span>
-
-  <span class="chip">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M12 6l4 12h-2l-1-3H11l-1 3H8l4-12z" fill="#fff"/>
-    </svg>
-    Ansible
-  </span>
-
-  <span class="chip">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M13 12h2v2h-2v-2zm-3 0h2v2h-2v-2zm6 0h2v2h-2v-2zm-9 0h2v2H7v-2zm15-2c0-1-1-2-2-2h-1V6h-2v2h-2V6h-2v2H9V6H7v2H5c-1 0-2 1-2 2 0 4 3 8 9 8s10-4 10-8z"/>
-    </svg>
-    Docker
-  </span>
+<span class="chip">Linux</span>
+<span class="chip">Ansible</span>
+<span class="chip">Docker</span>
 </div>
 </div>
 
@@ -369,29 +402,17 @@ Specjalizuję się w automatyzacji (Ansible, Bash), monitoringu oraz utrzymaniu
 <p class="title">Administrator systemów IT</p>
 <p class="company">Santander Bank Polska</p>
 <ul class="bullets">
-<li>Administracja Linux</li>
+<li>Administracja systemami Linux</li>
+<li>Wdrażanie aplikacji (test / prod)</li>
 <li>Docker i CI/CD</li>
-<li>Wdrażanie aplikacji test/prod</li>
-<li>Patchowanie, on-call, DR</li>
+<li>Patchowanie, dyżury on-call, DR</li>
 <li>Zarządzanie bazami danych</li>
 </ul>
 <div class="chips">
-  <span class="chip">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C8 2 6 5 6 8c0 1.5.5 3 1.5 4L6 18c2 1 4 2 6 2s4-1 6-2l-1.5-6c1-1 1.5-2.5 1.5-4 0-3-2-6-6-6z"/>
-    </svg>
-    Linux
-  </span>
-
-  <span class="chip">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M13 12h2v2h-2v-2zm-3 0h2v2h-2v-2zm6 0h2v2h-2v-2zm-9 0h2v2H7v-2zm15-2c0-1-1-2-2-2h-1V6h-2v2h-2V6h-2v2H9V6H7v2H5c-1 0-2 1-2 2 0 4 3 8 9 8s10-4 10-8z"/>
-    </svg>
-    Docker
-  </span>
-
-  <span class="chip">PostgreSQL</span>
-  <span class="chip">Oracle</span>
+<span class="chip">Linux</span>
+<span class="chip">Docker</span>
+<span class="chip">PostgreSQL</span>
+<span class="chip">Oracle</span>
 </div>
 </div>
 
@@ -400,7 +421,7 @@ Specjalizuję się w automatyzacji (Ansible, Bash), monitoringu oraz utrzymaniu
 <p class="title">Informatyk</p>
 <p class="company">AdvaCom Sp. z o.o.</p>
 <ul class="bullets">
-<li>LAN/WLAN/WAN</li>
+<li>Administracja LAN / WLAN / WAN</li>
 <li>VMware, Windows, Linux</li>
 <li>Firewall (Fortigate, Cisco)</li>
 <li>Backup i wsparcie użytkowników</li>
@@ -432,7 +453,10 @@ Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb procesu rekr
 
 <script>
 function toggleTheme(){
-  document.body.classList.toggle('dark');
+  const body = document.body;
+  const btn = document.getElementById('themeBtn');
+  body.classList.toggle('dark');
+  btn.textContent = body.classList.contains('dark') ? 'Tryb jasny' : 'Tryb nocny';
 }
 </script>
 
