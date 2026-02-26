@@ -81,6 +81,7 @@ body{
   background:linear-gradient(180deg, rgba(31,111,235,.07), rgba(31,111,235,0));
 }
 
+/* wspólny styl dla button i linka */
 .btn{
   border:0;
   cursor:pointer;
@@ -92,6 +93,10 @@ body{
   color:#fff;
   transition:.2s;
   letter-spacing:.2px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 }
 .btn:hover{
   transform:translateY(-2px);
@@ -191,6 +196,7 @@ summary::-webkit-details-marker{display:none;}
   gap:12px;
   min-width:0;
 }
+
 .icon{
   width:36px;
   height:36px;
@@ -206,6 +212,7 @@ body.dark .icon{
   background:rgba(17,24,39,.55);
   border-color:rgba(154,208,255,.15);
 }
+
 .sum-title{
   font-weight:900;
   font-size:16px;
@@ -216,6 +223,8 @@ body.dark .icon{
   font-weight:700;
   color:var(--muted);
   margin-top:2px;
+
+  /* desktop: jedna linia z elipsą */
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -348,10 +357,26 @@ body.dark .item{
   .avatar{ width:150px; height:150px; }
   .hero h1{ font-size:34px; }
   .contact-grid{ grid-template-columns:1fr; }
-  .sum-hint{ max-width:240px; }
+
+  /* ✅ MOBILE: nie ucinaj hintów — zawijaj do 2 linii */
+  .sum-hint{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    max-width:none;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    line-height:1.25;
+  }
+
+  summary{ padding:14px 14px; }
+  .sum-left{ gap:10px; }
+  .icon{ width:34px; height:34px; border-radius:11px; }
 }
 
-/* PRINT (PDF) */
+/* PRINT (PDF) – zostawiamy tylko sensowne style, ale pobieranie PDF jest z pliku */
 @media print{
   body{ background:#fff; }
   .wrap{ margin:0; padding:0; }
@@ -380,7 +405,11 @@ body.dark .item{
 
     <div class="topbar">
       <button class="btn" id="themeBtn" onclick="toggleTheme()">Tryb nocny</button>
-      <button class="btn" onclick="downloadPDF()">Pobierz PDF</button>
+
+      <!-- ✅ Pobiera istniejący plik PDF z folderu obok index.html -->
+      <a class="btn" href="CV_Andrzej%20Pusty.pdf" download="CV_Andrzej Pusty.pdf">
+        Pobierz PDF
+      </a>
     </div>
 
     <section class="hero">
@@ -625,7 +654,7 @@ body.dark .item{
 </div>
 
 <script>
-/* 1) Theme (z zapisem) */
+/* Theme (z zapisem) */
 (function initTheme(){
   const saved = localStorage.getItem('theme');
   if(saved === 'dark') document.body.classList.add('dark');
@@ -644,38 +673,14 @@ function toggleTheme(){
   updateThemeButton();
 }
 
-/* 1) Zawsze startuj ze zwiniętymi sekcjami (po wejściu / odświeżeniu) */
+/* Zawsze startuj ze zwiniętymi sekcjami (po wejściu / odświeżeniu) */
 function closeAllAccordions(){
   document.querySelectorAll('details.acc').forEach(d => {
-    d.removeAttribute('open'); // pewne zamknięcie
+    d.removeAttribute('open');
     d.open = false;
   });
 }
 document.addEventListener('DOMContentLoaded', closeAllAccordions);
-
-/* PDF: rozwiń wszystko przed drukiem, potem przywróć stan */
-let __detailsState = null;
-
-function beforePrint(){
-  const all = Array.from(document.querySelectorAll('details.acc'));
-  __detailsState = all.map(d => d.open);
-  all.forEach(d => d.open = true);
-}
-function afterPrint(){
-  if(!__detailsState) return;
-  const all = Array.from(document.querySelectorAll('details.acc'));
-  all.forEach((d, i) => d.open = !!__detailsState[i]);
-  __detailsState = null;
-}
-function downloadPDF(){
-  window.print();
-}
-window.addEventListener('beforeprint', beforePrint);
-window.addEventListener('afterprint', afterPrint);
-if (window.matchMedia){
-  const mql = window.matchMedia('print');
-  mql.addEventListener?.('change', (e) => e.matches ? beforePrint() : afterPrint());
-}
 </script>
 
 </body>
