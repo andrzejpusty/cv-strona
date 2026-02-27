@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Andrzej Pusty — CV</title>
 <meta name="description" content="Administrator systemów IT. Linux, automatyzacja, CI/CD, monitoring, bazy danych, HA.">
+<link rel="canonical" href="./">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Andrzej Pusty — CV">
+<meta property="og:description" content="Administrator systemów IT. Linux, automatyzacja, CI/CD, monitoring, bazy danych, HA.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Andrzej Pusty — CV">
+<meta name="twitter:description" content="Administrator systemów IT. Linux, automatyzacja, CI/CD, monitoring, bazy danych, HA.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,6 +93,12 @@ body{
 .btn:hover{
   transform:translateY(-2px);
   box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+.btn:focus-visible,
+summary:focus-visible,
+.v a:focus-visible{
+  outline:2px solid #9ad0ff;
+  outline-offset:3px;
 }
 
 /* hero */
@@ -413,6 +427,13 @@ details.acc[open]{
   .icon{ width:34px; height:34px; border-radius:11px; }
 }
 
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation:none !important;
+    transition:none !important;
+  }
+}
+
 /* PRINT (zostawiamy, ale PDF pobierasz jako plik z linka) */
 @media print{
   body{ background:#fff; color:#111; }
@@ -456,7 +477,7 @@ details.acc[open]{
             <div>
               <span class="prompt">andrzej@cv-host</span>:<span class="path">~</span>$ <span class="cmd">cat about.txt</span>
             </div>
-            <div id="typeTarget"></div><span class="cursor" id="cursor"></span>
+            <div id="typeTarget">Administrator systemów IT z 8-letnim doświadczeniem w administracji systemami Linux, automatyzacji procesów IT oraz zarządzaniu bazami danych. Specjalizuję się w monitorowaniu systemów, analizie logów i utrzymaniu infrastruktury IT. Posiadam doświadczenie w pracy z rozwiązaniami CI/CD, zapewnianiu wysokiej dostępności usług oraz optymalizacji procesów IT. Skutecznie rozwiązuję problemy aplikacyjne i systemowe w środowiskach testowych oraz produkcyjnych.</div><span class="cursor" id="cursor"></span>
           </div>
         </div>
 
@@ -698,13 +719,7 @@ function closeAllAccordions(){
 document.addEventListener('DOMContentLoaded', closeAllAccordions);
 
 /* Typewriter (terminal) */
-const aboutText =
-`Administrator systemów IT z 8-letnim doświadczeniem w administracji systemami Linux,
-automatyzacji procesów IT oraz zarządzaniu bazami danych. Specjalizuję się w
-monitorowaniu systemów, analizie logów i utrzymaniu infrastruktury IT. Posiadam
-doświadczenie w pracy z rozwiązaniami CI/CD, zapewnianiu wysokiej dostępności usług oraz
-optymalizacji procesów IT. Skutecznie rozwiązuję problemy aplikacyjne i systemowe w
-środowiskach testowych oraz produkcyjnych`;
+const aboutText = (document.getElementById('typeTarget')?.textContent || '').trim();
 
 function typeInto(el, text, speedMs = 16){
   let i = 0;
@@ -727,7 +742,17 @@ function typeInto(el, text, speedMs = 16){
 
 document.addEventListener('DOMContentLoaded', () => {
   const target = document.getElementById('typeTarget');
-  if(target) typeInto(target, aboutText, 14);
+  const cursor = document.getElementById('cursor');
+  if(!target) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){
+    target.textContent = aboutText;
+    if(cursor) cursor.style.display = 'none';
+    return;
+  }
+
+  typeInto(target, aboutText, 14);
 });
 </script>
 
