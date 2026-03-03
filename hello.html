@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kurs - Etap 0</title>
+<title>Kurs - Plan ETAP 0-11</title>
 <style>
   :root{
     --bg:#0b1220;
@@ -25,7 +25,7 @@
       var(--bg);
   }
   .wrap{
-    max-width:980px;
+    max-width:1024px;
     margin:28px auto;
     padding:0 16px 24px;
   }
@@ -45,28 +45,32 @@
     color:var(--muted);
     font-size:15px;
   }
+  .stages{
+    display:grid;
+    gap:14px;
+  }
   .stage{
     border:1px solid var(--line);
     border-radius:14px;
-    padding:16px;
+    padding:14px;
     background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
   }
-  h2{
-    margin:0;
-    font-size:1.15rem;
+  .stage h2{
+    margin:0 0 6px;
+    font-size:1.12rem;
   }
   .goal{
-    margin:10px 0 14px;
+    margin:0 0 12px;
     color:var(--muted);
   }
   .steps{
     display:grid;
-    gap:12px;
+    gap:10px;
   }
   .step{
     border:1px solid var(--line);
-    border-radius:12px;
-    padding:12px;
+    border-radius:10px;
+    padding:10px;
     background:#0d1626;
   }
   .step-head{
@@ -79,29 +83,27 @@
     font-weight:700;
     cursor:pointer;
   }
-  .step code{
+  code{
     display:block;
     white-space:pre-wrap;
     word-break:break-word;
     font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size:12.5px;
     line-height:1.6;
-    padding:10px;
-    border-radius:10px;
+    padding:9px 10px;
+    border-radius:8px;
     background:#070d18;
     border:1px solid #1a2840;
     color:#d9e8ff;
   }
-  .done{
-    margin-top:16px;
-    border:1px dashed #2b4367;
-    border-radius:12px;
-    padding:12px;
-    color:#b7cae3;
-    background:rgba(74,163,255,.08);
+  .simple{
+    margin:0;
+    padding-left:18px;
+    color:#d3e0f4;
+    line-height:1.6;
   }
   .back{
-    margin-top:14px;
+    margin-top:16px;
   }
   .back a{
     color:var(--accent);
@@ -114,70 +116,251 @@
 <body>
   <div class="wrap">
     <main class="panel">
-      <h1>Kurs krok po roku</h1>
-      <p class="lead">Po zalogowaniu masz swoją checklistę. Zaznaczenia zapisują się lokalnie w przeglądarce.</p>
+      <h1>Kurs krok po roku - ETAP 0-11</h1>
+      <p class="lead">Checklisty zapisują się lokalnie (w tej przeglądarce), więc po odświeżeniu postęp zostaje.</p>
 
-      <section class="stage" aria-labelledby="stage0-title">
-        <h2 id="stage0-title">ETAP 0 - Laptop gotowy do pracy (lokalnie)</h2>
-        <p class="goal"><strong>Cel:</strong> Masz narzędzia, żeby pracować i łączyć się z serwerem.</p>
-
-        <div class="steps">
-          <article class="step">
-            <div class="step-head">
-              <input type="checkbox" id="step0-1" data-step />
-              <label for="step0-1">Aktualizacja + pakiety (Linux Mint)</label>
-            </div>
-            <code>sudo apt update && sudo apt upgrade -y
+      <section class="stages">
+        <article class="stage">
+          <h2>ETAP 0 - Laptop gotowy do pracy (lokalnie)</h2>
+          <p class="goal"><strong>Cel:</strong> Masz narzędzia, żeby pracować i łączyć się z serwerem.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s0-1" data-step /><label for="s0-1">Aktualizacja + pakiety (Linux Mint)</label></div>
+              <code>sudo apt update && sudo apt upgrade -y
 sudo apt install -y git curl wget ca-certificates gnupg lsb-release unzip jq openssh-client</code>
-          </article>
-
-          <article class="step">
-            <div class="step-head">
-              <input type="checkbox" id="step0-2" data-step />
-              <label for="step0-2">Git konfiguracja</label>
             </div>
-            <code>git config --global user.name "Andrzej Pusty"
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s0-2" data-step /><label for="s0-2">Git konfiguracja</label></div>
+              <code>git config --global user.name "Andrzej Pusty"
 git config --global user.email "TWOJ_EMAIL"</code>
-          </article>
-
-          <article class="step">
-            <div class="step-head">
-              <input type="checkbox" id="step0-3" data-step />
-              <label for="step0-3">VS Code bez flatpaka (repo MS)</label>
             </div>
-            <code>wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s0-3" data-step /><label for="s0-3">VS Code bez flatpaka (repo MS)</label></div>
+              <code>wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt update
 sudo apt install -y code</code>
-          </article>
-
-          <article class="step">
-            <div class="step-head">
-              <input type="checkbox" id="step0-4" data-step />
-              <label for="step0-4">Klucz SSH na laptopie</label>
             </div>
-            <code>ssh-keygen -t ed25519 -C "andrzej-vps"
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s0-4" data-step /><label for="s0-4">Klucz SSH na laptopie</label></div>
+              <code>ssh-keygen -t ed25519 -C "andrzej-vps"
 cat ~/.ssh/id_ed25519.pub</code>
-          </article>
-
-          <article class="step">
-            <div class="step-head">
-              <input type="checkbox" id="step0-5" data-step />
-              <label for="step0-5">Skopiuj wynik (public key)</label>
             </div>
-          </article>
-        </div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s0-5" data-step /><label for="s0-5">Skopiuj wynik (public key).</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s0-6" data-step /><label for="s0-6">Na końcu: działa `ssh -V`, `git --version`, `code`.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s0-7" data-step /><label for="s0-7">Na końcu: masz klucz w `~/.ssh/id_ed25519`.</label></div></div>
+          </div>
+        </article>
 
-        <div class="done">
-          <strong>Na końcu etapu 0 działa:</strong>
-          <div>
-            <label><input type="checkbox" id="step0-6" data-step /> `ssh -V`, `git --version`, `code`</label>
+        <article class="stage">
+          <h2>ETAP 1 - Kupujesz VPS w OVH i logujesz się pierwszy raz</h2>
+          <p class="goal"><strong>Cel:</strong> Masz działający serwer i możesz wejść po SSH.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s1-1" data-step /><label for="s1-1">W OVH kup VPS (2 vCPU / 4 GB RAM / 40-80 GB SSD, Ubuntu 24.04 LTS) i odbierz IP + root access.</label></div>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s1-2" data-step /><label for="s1-2">Logowanie pierwszy raz</label></div>
+              <code>ssh root@TWOJE_IP</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s1-3" data-step /><label for="s1-3">Aktualizacja + reboot</label></div>
+              <code>apt update && apt -y upgrade
+reboot</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s1-4" data-step /><label for="s1-4">Po restarcie: logowanie ponownie.</label></div>
+              <code>ssh root@TWOJE_IP</code>
+            </div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s1-5" data-step /><label for="s1-5">Na końcu: wchodzisz na serwer jako root przez SSH.</label></div></div>
           </div>
-          <div>
-            <label><input type="checkbox" id="step0-7" data-step /> Masz klucz w `~/.ssh/id_ed25519`</label>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 2 - Zabezpieczasz serwer i zakładasz usera deploy</h2>
+          <p class="goal"><strong>Cel:</strong> Nie pracujesz na roocie. Logowanie tylko kluczem.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s2-1" data-step /><label for="s2-1">Użytkownik deploy (na VPS jako root)</label></div>
+              <code>adduser deploy
+usermod -aG sudo deploy</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s2-2" data-step /><label for="s2-2">Wgraj klucz SSH dla deploy</label></div>
+              <code>mkdir -p /home/deploy/.ssh
+nano /home/deploy/.ssh/authorized_keys</code>
+            </div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s2-3" data-step /><label for="s2-3">Wklej public key z laptopa.</label></div></div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s2-4" data-step /><label for="s2-4">Ustaw prawa</label></div>
+              <code>chown -R deploy:deploy /home/deploy/.ssh
+chmod 700 /home/deploy/.ssh
+chmod 600 /home/deploy/.ssh/authorized_keys</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s2-5" data-step /><label for="s2-5">Test z laptopa</label></div>
+              <code>ssh deploy@TWOJE_IP</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s2-6" data-step /><label for="s2-6">Wyłącz root i hasła</label></div>
+              <code>sudo nano /etc/ssh/sshd_config
+
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+
+sudo systemctl restart ssh</code>
+            </div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s2-7" data-step /><label for="s2-7">Na końcu: logujesz się `ssh deploy@IP`.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s2-8" data-step /><label for="s2-8">Na końcu: root po SSH NIE działa.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s2-9" data-step /><label for="s2-9">Na końcu: hasła po SSH NIE działają.</label></div></div>
           </div>
-        </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 3 - Firewall + fail2ban</h2>
+          <p class="goal"><strong>Cel:</strong> Podstawowe bezpieczeństwo "jak w firmie".</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s3-1" data-step /><label for="s3-1">UFW (na VPS jako deploy)</label></div>
+              <code>sudo apt -y install ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow OpenSSH
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw enable
+sudo ufw status</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s3-2" data-step /><label for="s3-2">fail2ban</label></div>
+              <code>sudo apt -y install fail2ban
+sudo systemctl enable --now fail2ban
+sudo systemctl status fail2ban --no-pager</code>
+            </div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s3-3" data-step /><label for="s3-3">Na końcu: UFW aktywny.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s3-4" data-step /><label for="s3-4">Na końcu: fail2ban aktywny.</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 4 - Docker + docker compose + struktura /opt</h2>
+          <p class="goal"><strong>Cel:</strong> Serwer jest gotowy pod aplikacje w kontenerach.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s4-1" data-step /><label for="s4-1">Instalacja Dockera</label></div>
+              <code>sudo apt -y install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s4-2" data-step /><label for="s4-2">Dodaj deploy do grupy docker + relog</label></div>
+              <code>sudo usermod -aG docker deploy
+exit
+ssh deploy@TWOJE_IP</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s4-3" data-step /><label for="s4-3">Test Dockera</label></div>
+              <code>docker version
+docker compose version</code>
+            </div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s4-4" data-step /><label for="s4-4">Katalogi /opt</label></div>
+              <code>sudo mkdir -p /opt/app /opt/infra
+sudo chown -R deploy:deploy /opt/app /opt/infra</code>
+            </div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s4-5" data-step /><label for="s4-5">Na końcu: docker działa bez sudo.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s4-6" data-step /><label for="s4-6">Na końcu: masz `/opt/app` i `/opt/infra`.</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 5 - Reverse proxy + HTTPS + domena</h2>
+          <p class="goal"><strong>Cel:</strong> Twoja usługa działa pod domeną i ma certyfikat SSL.</p>
+          <div class="steps">
+            <div class="step"><div class="step-head"><input type="checkbox" id="s5-1" data-step /><label for="s5-1">W DNS: `app.andrzejpusty.pl` -> rekord A -> IP VPS.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s5-2" data-step /><label for="s5-2">Stawiasz reverse proxy (np. Caddy).</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s5-3" data-step /><label for="s5-3">Caddy wystawia HTTPS automatycznie (Let's Encrypt).</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s5-4" data-step /><label for="s5-4">Proxy przekazuje ruch do kontenera aplikacji.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s5-5" data-step /><label for="s5-5">Na końcu: `https://app.andrzejpusty.pl` otwiera usługę.</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 6 - Aplikacja testowa (minimum)</h2>
+          <p class="goal"><strong>Cel:</strong> Masz coś, co wdrażasz i utrzymujesz.</p>
+          <div class="steps">
+            <div class="step"><div class="step-head"><input type="checkbox" id="s6-1" data-step /><label for="s6-1">Endpoint `/` zwraca stronę.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s6-2" data-step /><label for="s6-2">Endpoint `/health` zwraca `ok`.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s6-3" data-step /><label for="s6-3">Aplikacja loguje requesty.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s6-4" data-step /><label for="s6-4">Wybór technologii (Python/Node/Nginx + statyczne pliki).</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 7 - CI/CD (GitHub Actions) + deploy po SSH</h2>
+          <p class="goal"><strong>Cel:</strong> Robisz git push i serwer sam się aktualizuje.</p>
+          <div class="steps">
+            <div class="step"><div class="step-head"><input type="checkbox" id="s7-1" data-step /><label for="s7-1">Pipeline: build Docker image.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s7-2" data-step /><label for="s7-2">Pipeline: test (prosty).</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s7-3" data-step /><label for="s7-3">Pipeline: push do registry.</label></div></div>
+            <div class="step">
+              <div class="step-head"><input type="checkbox" id="s7-4" data-step /><label for="s7-4">Deploy po SSH.</label></div>
+              <code>docker compose pull
+docker compose up -d</code>
+            </div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s7-5" data-step /><label for="s7-5">Na końcu: automatyczny deploy.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s7-6" data-step /><label for="s7-6">Na końcu: rollback na poprzedni tag.</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 8 - Monitoring + alerty</h2>
+          <p class="goal"><strong>Cel:</strong> Widzisz metryki i dostajesz alerty.</p>
+          <div class="steps">
+            <div class="step"><div class="step-head"><input type="checkbox" id="s8-1" data-step /><label for="s8-1">Prometheus + Grafana.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s8-2" data-step /><label for="s8-2">node_exporter.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s8-3" data-step /><label for="s8-3">Alerty: mało miejsca / serwer down / aplikacja down.</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 9 - Backup + odtworzenie</h2>
+          <p class="goal"><strong>Cel:</strong> Nie boisz się awarii.</p>
+          <div class="steps">
+            <div class="step"><div class="step-head"><input type="checkbox" id="s9-1" data-step /><label for="s9-1">Backup bazy (jeśli jest).</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s9-2" data-step /><label for="s9-2">Backup konfiguracji.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s9-3" data-step /><label for="s9-3">Rotacja backupów.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s9-4" data-step /><label for="s9-4">TEST restore.</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 10 - Terraform (IaC)</h2>
+          <p class="goal"><strong>Cel:</strong> Serwer stawiasz kodem.</p>
+          <div class="steps">
+            <div class="step"><div class="step-head"><input type="checkbox" id="s10-1" data-step /><label for="s10-1">Provisioning VPS w OVH (w miarę możliwości API).</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s10-2" data-step /><label for="s10-2">Albo: kod + dokumentacja + skrypty provisioning.</label></div></div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <h2>ETAP 11 - Kubernetes (k3s) migracja</h2>
+          <p class="goal"><strong>Cel:</strong> K8s experience do CV.</p>
+          <div class="steps">
+            <div class="step"><div class="step-head"><input type="checkbox" id="s11-1" data-step /><label for="s11-1">Migracja docker-compose -> k3s.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s11-2" data-step /><label for="s11-2">Deployment / Service / Ingress.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s11-3" data-step /><label for="s11-3">Secrets / ConfigMap.</label></div></div>
+            <div class="step"><div class="step-head"><input type="checkbox" id="s11-4" data-step /><label for="s11-4">Rolling updates.</label></div></div>
+          </div>
+        </article>
       </section>
 
       <p class="back"><a href="index.html">Powrót do CV</a></p>
@@ -185,7 +368,7 @@ cat ~/.ssh/id_ed25519.pub</code>
   </div>
 
   <script>
-    const STORAGE_KEY = "kurs_etap0_checklist_v1";
+    const STORAGE_KEY = "kurs_plan_0_11_checklist_v1";
     const checkboxes = Array.from(document.querySelectorAll("input[data-step]"));
 
     function loadProgress(){
