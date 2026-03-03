@@ -3,31 +3,213 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hello</title>
+<title>Kurs - Etap 0</title>
 <style>
   :root{
+    --bg:#0b1220;
+    --card:#111827;
+    --line:#233046;
+    --text:#e6edf6;
+    --muted:#9fb1c7;
+    --accent:#4aa3ff;
     color-scheme: dark;
   }
-  *{
-    box-sizing:border-box;
-  }
+  *{ box-sizing:border-box; }
   body{
     margin:0;
-    min-height:100vh;
-    display:grid;
-    place-items:center;
     font-family:Inter, Arial, sans-serif;
-    background:radial-gradient(circle at 20% 20%, #1f6feb 0%, #0f172a 42%, #020617 100%);
-    color:#e9eef3;
+    color:var(--text);
+    background:
+      radial-gradient(1100px 500px at -5% -10%, rgba(74,163,255,.18), transparent),
+      radial-gradient(900px 400px at 110% -20%, rgba(74,163,255,.14), transparent),
+      var(--bg);
+  }
+  .wrap{
+    max-width:980px;
+    margin:28px auto;
+    padding:0 16px 24px;
+  }
+  .panel{
+    background:rgba(17,24,39,.92);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 20px 45px rgba(0,0,0,.33);
   }
   h1{
-    margin:0;
-    font-size:clamp(2rem, 6vw, 4rem);
-    letter-spacing:.4px;
+    margin:0 0 6px;
+    font-size:clamp(1.5rem, 4vw, 2.2rem);
   }
+  .lead{
+    margin:0 0 16px;
+    color:var(--muted);
+    font-size:15px;
+  }
+  .stage{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  }
+  h2{
+    margin:0;
+    font-size:1.15rem;
+  }
+  .goal{
+    margin:10px 0 14px;
+    color:var(--muted);
+  }
+  .steps{
+    display:grid;
+    gap:12px;
+  }
+  .step{
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px;
+    background:#0d1626;
+  }
+  .step-head{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .step label{
+    font-weight:700;
+    cursor:pointer;
+  }
+  .step code{
+    display:block;
+    white-space:pre-wrap;
+    word-break:break-word;
+    font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size:12.5px;
+    line-height:1.6;
+    padding:10px;
+    border-radius:10px;
+    background:#070d18;
+    border:1px solid #1a2840;
+    color:#d9e8ff;
+  }
+  .done{
+    margin-top:16px;
+    border:1px dashed #2b4367;
+    border-radius:12px;
+    padding:12px;
+    color:#b7cae3;
+    background:rgba(74,163,255,.08);
+  }
+  .back{
+    margin-top:14px;
+  }
+  .back a{
+    color:var(--accent);
+    text-decoration:none;
+    font-weight:700;
+  }
+  .back a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
-  <h1>Hello world</h1>
+  <div class="wrap">
+    <main class="panel">
+      <h1>Kurs krok po roku</h1>
+      <p class="lead">Po zalogowaniu masz swoją checklistę. Zaznaczenia zapisują się lokalnie w przeglądarce.</p>
+
+      <section class="stage" aria-labelledby="stage0-title">
+        <h2 id="stage0-title">ETAP 0 - Laptop gotowy do pracy (lokalnie)</h2>
+        <p class="goal"><strong>Cel:</strong> Masz narzędzia, żeby pracować i łączyć się z serwerem.</p>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-head">
+              <input type="checkbox" id="step0-1" data-step />
+              <label for="step0-1">Aktualizacja + pakiety (Linux Mint)</label>
+            </div>
+            <code>sudo apt update && sudo apt upgrade -y
+sudo apt install -y git curl wget ca-certificates gnupg lsb-release unzip jq openssh-client</code>
+          </article>
+
+          <article class="step">
+            <div class="step-head">
+              <input type="checkbox" id="step0-2" data-step />
+              <label for="step0-2">Git konfiguracja</label>
+            </div>
+            <code>git config --global user.name "Andrzej Pusty"
+git config --global user.email "TWOJ_EMAIL"</code>
+          </article>
+
+          <article class="step">
+            <div class="step-head">
+              <input type="checkbox" id="step0-3" data-step />
+              <label for="step0-3">VS Code bez flatpaka (repo MS)</label>
+            </div>
+            <code>wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt update
+sudo apt install -y code</code>
+          </article>
+
+          <article class="step">
+            <div class="step-head">
+              <input type="checkbox" id="step0-4" data-step />
+              <label for="step0-4">Klucz SSH na laptopie</label>
+            </div>
+            <code>ssh-keygen -t ed25519 -C "andrzej-vps"
+cat ~/.ssh/id_ed25519.pub</code>
+          </article>
+
+          <article class="step">
+            <div class="step-head">
+              <input type="checkbox" id="step0-5" data-step />
+              <label for="step0-5">Skopiuj wynik (public key)</label>
+            </div>
+          </article>
+        </div>
+
+        <div class="done">
+          <strong>Na końcu etapu 0 działa:</strong>
+          <div>
+            <label><input type="checkbox" id="step0-6" data-step /> `ssh -V`, `git --version`, `code`</label>
+          </div>
+          <div>
+            <label><input type="checkbox" id="step0-7" data-step /> Masz klucz w `~/.ssh/id_ed25519`</label>
+          </div>
+        </div>
+      </section>
+
+      <p class="back"><a href="index.html">Powrót do CV</a></p>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "kurs_etap0_checklist_v1";
+    const checkboxes = Array.from(document.querySelectorAll("input[data-step]"));
+
+    function loadProgress(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if(!raw) return;
+        const saved = JSON.parse(raw);
+        checkboxes.forEach((cb) => {
+          cb.checked = Boolean(saved[cb.id]);
+        });
+      }catch(_e){
+      }
+    }
+
+    function saveProgress(){
+      const payload = {};
+      checkboxes.forEach((cb) => {
+        payload[cb.id] = cb.checked;
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    }
+
+    loadProgress();
+    checkboxes.forEach((cb) => cb.addEventListener("change", saveProgress));
+  </script>
 </body>
 </html>
