@@ -34,7 +34,26 @@
 
     <div class="topbar">
       <a class="btn" href="CV_Andrzej%20Pusty.pdf" download="CV_Andrzej Pusty.pdf">Pobierz PDF</a>
+      <button class="btn btn-login" id="openLogin" type="button">Zaloguj się</button>
     </div>
+
+    <dialog class="login-dialog" id="loginDialog" aria-labelledby="loginTitle">
+      <form class="login-form" id="loginForm">
+        <h2 id="loginTitle">Logowanie</h2>
+        <label for="loginInput">Login</label>
+        <input id="loginInput" name="login" type="text" autocomplete="username" required />
+
+        <label for="passwordInput">Hasło</label>
+        <input id="passwordInput" name="password" type="password" autocomplete="current-password" required />
+
+        <p id="loginError" class="login-error" role="alert" hidden>Nieprawidłowy login lub hasło.</p>
+
+        <div class="login-actions">
+          <button class="btn btn-login-cancel" id="closeLogin" type="button">Anuluj</button>
+          <button class="btn" type="submit">Zaloguj</button>
+        </div>
+      </form>
+    </dialog>
 
     <section class="hero">
       <div class="avatar">
@@ -336,6 +355,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   typeInto(target, aboutText, 14);
+});
+
+/* Login (demo, front-end only) */
+const DEMO_LOGIN = 'admin';
+const DEMO_PASSWORD = 'haslo123';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const openBtn = document.getElementById('openLogin');
+  const closeBtn = document.getElementById('closeLogin');
+  const dialog = document.getElementById('loginDialog');
+  const form = document.getElementById('loginForm');
+  const error = document.getElementById('loginError');
+  const loginInput = document.getElementById('loginInput');
+  const passwordInput = document.getElementById('passwordInput');
+  if(!openBtn || !closeBtn || !dialog || !form || !error || !loginInput || !passwordInput) return;
+
+  const openDialog = () => {
+    error.hidden = true;
+    form.reset();
+    if(typeof dialog.showModal === 'function'){
+      dialog.showModal();
+    }else{
+      dialog.setAttribute('open', '');
+    }
+    loginInput.focus();
+  };
+
+  const closeDialog = () => {
+    if(typeof dialog.close === 'function'){
+      dialog.close();
+    }else{
+      dialog.removeAttribute('open');
+    }
+  };
+
+  openBtn.addEventListener('click', openDialog);
+  closeBtn.addEventListener('click', closeDialog);
+
+  dialog.addEventListener('click', (event) => {
+    if(event.target === dialog) closeDialog();
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const login = loginInput.value.trim();
+    const password = passwordInput.value;
+    if(login === DEMO_LOGIN && password === DEMO_PASSWORD){
+      window.location.href = 'hello.html';
+      return;
+    }
+
+    error.hidden = false;
+    passwordInput.value = '';
+    passwordInput.focus();
+  });
 });
 </script>
 
